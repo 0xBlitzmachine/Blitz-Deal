@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum TabItem: String {
+    case deals, stores
+}

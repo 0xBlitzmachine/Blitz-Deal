@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct GameDealsResponse: Codable {
+    let gameDeals: [GameDeal]
+}
