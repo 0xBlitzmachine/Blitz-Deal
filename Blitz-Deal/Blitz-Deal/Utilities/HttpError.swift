@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum HttpError: Error {
+    case invalidUrl
+    case invalidResponse
+    case failedToDecode
+    case badStatusCode
+}

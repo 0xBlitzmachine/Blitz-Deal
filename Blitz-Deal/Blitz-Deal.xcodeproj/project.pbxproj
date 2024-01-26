@@ -16,6 +16,7 @@
 		606804D72B55C76B00E3B4D9 /* HttpRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804D62B55C76B00E3B4D9 /* HttpRoutes.swift */; };
 		606804DB2B55C9C700E3B4D9 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804DA2B55C9C700E3B4D9 /* TabItem.swift */; };
 		606804DD2B55CADF00E3B4D9 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804DC2B55CADF00E3B4D9 /* HttpManager.swift */; };
+		606804DF2B55CDB900E3B4D9 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804DE2B55CDB900E3B4D9 /* HttpError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		606804D62B55C76B00E3B4D9 /* HttpRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRoutes.swift; sourceTree = "<group>"; };
 		606804DA2B55C9C700E3B4D9 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		606804DC2B55CADF00E3B4D9 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		606804DE2B55CDB900E3B4D9 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				606804D62B55C76B00E3B4D9 /* HttpRoutes.swift */,
+				606804DE2B55CDB900E3B4D9 /* HttpError.swift */,
 				606804DA2B55C9C700E3B4D9 /* TabItem.swift */,
 			);
 			path = Utilities;
@@ -196,6 +199,7 @@
 				606804DD2B55CADF00E3B4D9 /* HttpManager.swift in Sources */,
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
 				606804DB2B55C9C700E3B4D9 /* TabItem.swift in Sources */,
+				606804DF2B55CDB900E3B4D9 /* HttpError.swift in Sources */,
 				606804D32B55C51300E3B4D9 /* GameDeal.swift in Sources */,
 				606804C22B55C2E200E3B4D9 /* Blitz_DealApp.swift in Sources */,
 				606804D12B55C48400E3B4D9 /* GameDealsResponse.swift in Sources */,

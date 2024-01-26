@@ -8,4 +8,7 @@
 import Foundation
 
 struct HttpManager {
+    static func () {
+        
+    }
 }
