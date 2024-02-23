@@ -22,12 +22,7 @@ class ApiManager {
                 print("API CALL ERROR : BAD STATUS")
                 return nil
             }
-            do {
-                return try JSONDecoder().decode(T.self, from: data)
-            } catch {
-                print(error.localizedDescription)
-                return nil
-            }
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
             print(error.localizedDescription)
             return nil
