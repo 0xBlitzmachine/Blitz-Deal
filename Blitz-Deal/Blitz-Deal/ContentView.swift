@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var shopItems: [ShopEntityAPI]? = nil
+    
     var body: some View {
-        ZStack {
-            Color.red
-                .ignoresSafeArea(.all, edges: .top)
-                .padding(.bottom, 50)
+        VStack {
+            List {
+                if let shopItems = shopItems {
+                    ForEach(shopItems, id: \.storeID) { shopItem in
+                        Text(shopItem.storeName ?? "Error")
+                    }
+                }
+            }
+            .onAppear {
+                Task {
+                    shopItems = try await ApiManager.getData(dataType: .storesInfo)
+                }
+            }
         }
-        
     }
 }
 

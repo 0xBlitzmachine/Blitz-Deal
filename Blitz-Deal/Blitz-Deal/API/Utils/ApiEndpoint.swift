@@ -8,7 +8,7 @@
 import Foundation
 
 struct ApiEndpointProvider {
-    static let baseUrl: String = "https://cheapshark.com/api/1.0"
+    
     
     struct Endpoints {
         static let deals = "/deals?"
