@@ -15,6 +15,7 @@
 		60680D292B879EB50046D15D /* ShopEntityImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D282B879EB50046D15D /* ShopEntityImages.swift */; };
 		60680D2C2B879FBC0046D15D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2B2B879FBC0046D15D /* ApiManager.swift */; };
 		60680D2F2B87A1690046D15D /* ApiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2E2B87A1690046D15D /* ApiData.swift */; };
+		607E5CF82B88936700A43B3D /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E5CF72B88936700A43B3D /* HttpError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		60680D282B879EB50046D15D /* ShopEntityImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopEntityImages.swift; sourceTree = "<group>"; };
 		60680D2B2B879FBC0046D15D /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		60680D2E2B87A1690046D15D /* ApiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiData.swift; sourceTree = "<group>"; };
+		607E5CF72B88936700A43B3D /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				60680D2E2B87A1690046D15D /* ApiData.swift */,
+				607E5CF72B88936700A43B3D /* HttpError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
+				607E5CF82B88936700A43B3D /* HttpError.swift in Sources */,
 				60680D272B879D450046D15D /* ShopEntityAPI.swift in Sources */,
 				60680D2F2B87A1690046D15D /* ApiData.swift in Sources */,
 				60680D292B879EB50046D15D /* ShopEntityImages.swift in Sources */,
