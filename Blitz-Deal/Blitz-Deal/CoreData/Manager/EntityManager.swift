@@ -13,7 +13,9 @@ class EntityManager: ObservableObject {
     @Published var storeEntities: [ShopInfo]? = .none
     
     init() {
-        
+        Task {
+            self.storeEntities = await PersistentManager.shared.fetchDataIntoContext()
+        }
     }
 }
 
@@ -32,29 +34,14 @@ extension EntityManager {
         storeEntity.shopLogos = imagesEntity
         
         Task {
-            try await saveContextChanges() 
+            self.saveContextChanges
         }
     }
 }
 
-
-
-
 extension EntityManager {
-    private func fetchDataIntoContext() async throws {
-        do {
-            self.storeEntities = try await PersistentManager.shared.fetchDataIntoContext()
-        } catch let error as NSError {
-            print("Entity Manager: " + error.localizedDescription)
-        }
-    }
-    
-    private func saveContextChanges() async throws {
-        do {
-            try PersistentManager.shared.saveContextChanges()
-            try await self.fetchDataIntoContext()
-        } catch let error as NSError {
-            print("Entity Manager: " + error.localizedDescription)
-        }
+    private func saveContextChanges() async {
+        await PersistentManager.shared.saveContextChanges()
+        self.storeEntities = await PersistentManager.shared.fetchDataIntoContext()
     }
 }

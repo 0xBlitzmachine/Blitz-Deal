@@ -22,20 +22,30 @@ class PersistentManager {
         context = container.viewContext
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
-                fatalError("CoreData" + error.localizedDescription)
+                fatalError("CoreData: " + error.localizedDescription)
             }
         }
     }
     
     // Fetch all Shop Information Entities from the PersistentStore into our Memory
-    func fetchDataIntoContext() async throws -> [ShopInfo]? {
-        return try context.fetch(ShopInfo.fetchRequest())
+    func fetchDataIntoContext() async -> [ShopInfo]? {
+        do {
+            return try context.fetch(ShopInfo.fetchRequest())
+        } catch let error as NSError {
+            print("CoreData: " + error.localizedDescription)
+            return nil
+        }
+        
     }
     
     // Try to save changes on Entities in our Memory to PersistentStore
-    func saveContextChanges() throws {
+    func saveContextChanges() async {
         if context.hasChanges {
-            try context.save()
+            do {
+                try context.save()
+            } catch let error as NSError {
+                print("CoreData: " + error.localizedDescription)
+            }
         }
     }
 }
