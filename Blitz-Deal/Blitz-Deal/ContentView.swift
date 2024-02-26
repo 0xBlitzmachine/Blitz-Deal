@@ -13,25 +13,41 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            List {
-                if $showProgressView.wrappedValue {
-                    ProgressView(label: {
-                        Label("Test", systemImage: "person")
-                    })
-                } else {
-                    if let shopItems = shopItems {
+            
+            if $showProgressView.wrappedValue {
+                ProgressView(value: 0.2)
+                    .progressViewStyle(.circular)
+            } else {
+                if let shopItems = shopItems {
+                    List {
                         ForEach(shopItems, id: \.storeID) { shopItem in
+                            HStack {
+                                
+                                AsyncImage(url: URL(string: "https://cheapshark.com\(shopItem.images?.banner ?? "")")) { image in
+                                    if let image = image.image {
+                                        image
+                                            .resizable()
+                                            .clipped()
+                                    }
+                                }
+                            }
+                            
+                            
                             Text(shopItem.storeName ?? "Error")
+                                .onTapGesture {
+                                    print(shopItem.images?.banner)
+                                }
                         }
                     }
                 }
             }
             
+            
             Button("Fetch") {
                 Task {
                     showProgressView = true
-                    shopItems = try await ApiManager.getData(dataType: .storesInfo)
-                    try await Task.sleep(nanoseconds: 2 * 1000000000)
+                    shopItems = try await CheapSharkService.getData(dataType: .storesInfo)
+                    try await Task.sleep(for: .seconds(3))
                     showProgressView = false
                 }
             }

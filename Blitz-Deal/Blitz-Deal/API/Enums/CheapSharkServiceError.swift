@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HttpError: Error {
+enum CheapSharkServiceError: Error {
     case badURL(String)
     case badResponseCode(String)
     case failedToDecode(String)
