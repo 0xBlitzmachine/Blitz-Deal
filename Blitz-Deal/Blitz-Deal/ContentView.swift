@@ -46,7 +46,7 @@ struct ContentView: View {
             Button("Fetch") {
                 Task {
                     showProgressView = true
-                    shopItems = try await CheapSharkService.getData(dataType: .storesInfo)
+                    shopItems = try await CheapSharkService.getData(.storesInfo)
                     try await Task.sleep(for: .seconds(3))
                     showProgressView = false
                 }

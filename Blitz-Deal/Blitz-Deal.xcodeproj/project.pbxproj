@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */; };
+		602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentManager.swift */; };
 		606804C22B55C2E200E3B4D9 /* Blitz_DealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */; };
 		606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C32B55C2E200E3B4D9 /* ContentView.swift */; };
 		606804C62B55C2E300E3B4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C52B55C2E300E3B4D9 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
+		602658482B8D08B500CE9368 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		606804BE2B55C2E200E3B4D9 /* Blitz-Deal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blitz-Deal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blitz_DealApp.swift; sourceTree = "<group>"; };
 		606804C32B55C2E200E3B4D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +46,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		602658432B8D06A900CE9368 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				602658442B8D06B000CE9368 /* PersistentCotainer */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		602658442B8D06B000CE9368 /* PersistentCotainer */ = {
+			isa = PBXGroup;
+			children = (
+				602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */,
+				602658482B8D08B500CE9368 /* PersistentManager.swift */,
+			);
+			path = PersistentCotainer;
+			sourceTree = "<group>";
+		};
 		606804B52B55C2E200E3B4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +82,7 @@
 		606804C02B55C2E200E3B4D9 /* Blitz-Deal */ = {
 			isa = PBXGroup;
 			children = (
+				602658432B8D06A900CE9368 /* CoreData */,
 				60680D242B879CF40046D15D /* API */,
 				606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */,
 				606804C32B55C2E200E3B4D9 /* ContentView.swift */,
@@ -192,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */,
+				602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */,
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
 				607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */,
 				60680D272B879D450046D15D /* ShopEntityAPI.swift in Sources */,
@@ -402,6 +426,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */,
+			);
+			currentVersion = 602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */;
+			path = StoreInformation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 606804B62B55C2E200E3B4D9 /* Project object */;
 }
