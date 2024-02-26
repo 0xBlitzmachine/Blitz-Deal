@@ -34,6 +34,8 @@ class PersistentManager {
     
     // Try to save changes on Entities in our Memory to PersistentStore
     func saveContextChanges() throws {
-        try context.save()
+        if context.hasChanges {
+            try context.save()
+        }
     }
 }

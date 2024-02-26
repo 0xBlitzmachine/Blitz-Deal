@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ShopEntityAPI : Codable {
+struct StoreEntityAPI : Codable {
     var storeID: String?
     var storeName: String?
     var isActive: Int?
-    var images: ShopEntityImages?
+    var images: StoreEntityImages?
 }

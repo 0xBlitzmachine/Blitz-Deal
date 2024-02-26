@@ -8,7 +8,9 @@
 import SwiftUI
 
 @main
-struct Blitz_DealApp: App {
+struct AppCore: App {
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

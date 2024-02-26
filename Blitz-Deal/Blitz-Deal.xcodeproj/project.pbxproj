@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */; };
 		602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentManager.swift */; };
-		606804C22B55C2E200E3B4D9 /* Blitz_DealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */; };
+		6026584F2B8D167F00CE9368 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026584E2B8D167F00CE9368 /* EntityManager.swift */; };
+		606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* AppCore.swift */; };
 		606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C32B55C2E200E3B4D9 /* ContentView.swift */; };
 		606804C62B55C2E300E3B4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C52B55C2E300E3B4D9 /* Assets.xcassets */; };
 		606804C92B55C2E300E3B4D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C82B55C2E300E3B4D9 /* Preview Assets.xcassets */; };
-		60680D272B879D450046D15D /* ShopEntityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D262B879D450046D15D /* ShopEntityAPI.swift */; };
-		60680D292B879EB50046D15D /* ShopEntityImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D282B879EB50046D15D /* ShopEntityImages.swift */; };
+		60680D272B879D450046D15D /* StoreEntityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D262B879D450046D15D /* StoreEntityAPI.swift */; };
+		60680D292B879EB50046D15D /* StoreEntityImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D282B879EB50046D15D /* StoreEntityImages.swift */; };
 		60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2B2B879FBC0046D15D /* CheapSharkService.swift */; };
 		60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */; };
 		607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */; };
@@ -23,13 +24,14 @@
 /* Begin PBXFileReference section */
 		602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
 		602658482B8D08B500CE9368 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
+		6026584E2B8D167F00CE9368 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		606804BE2B55C2E200E3B4D9 /* Blitz-Deal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blitz-Deal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blitz_DealApp.swift; sourceTree = "<group>"; };
+		606804C12B55C2E200E3B4D9 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		606804C32B55C2E200E3B4D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		606804C52B55C2E300E3B4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		606804C82B55C2E300E3B4D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		60680D262B879D450046D15D /* ShopEntityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopEntityAPI.swift; sourceTree = "<group>"; };
-		60680D282B879EB50046D15D /* ShopEntityImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopEntityImages.swift; sourceTree = "<group>"; };
+		60680D262B879D450046D15D /* StoreEntityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEntityAPI.swift; sourceTree = "<group>"; };
+		60680D282B879EB50046D15D /* StoreEntityImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEntityImages.swift; sourceTree = "<group>"; };
 		60680D2B2B879FBC0046D15D /* CheapSharkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkService.swift; sourceTree = "<group>"; };
 		60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkEndpoint.swift; sourceTree = "<group>"; };
 		607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkServiceError.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 		602658432B8D06A900CE9368 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				6026584D2B8D166A00CE9368 /* Manager */,
 				602658442B8D06B000CE9368 /* PersistentCotainer */,
 			);
 			path = CoreData;
@@ -66,7 +69,7 @@
 		6026584A2B8D12CE00CE9368 /* AppCore */ = {
 			isa = PBXGroup;
 			children = (
-				606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */,
+				606804C12B55C2E200E3B4D9 /* AppCore.swift */,
 				6026584B2B8D130A00CE9368 /* Views */,
 			);
 			path = AppCore;
@@ -78,6 +81,14 @@
 				606804C32B55C2E200E3B4D9 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6026584D2B8D166A00CE9368 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6026584E2B8D167F00CE9368 /* EntityManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		606804B52B55C2E200E3B4D9 = {
@@ -130,8 +141,8 @@
 		60680D252B879D0B0046D15D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60680D262B879D450046D15D /* ShopEntityAPI.swift */,
-				60680D282B879EB50046D15D /* ShopEntityImages.swift */,
+				60680D262B879D450046D15D /* StoreEntityAPI.swift */,
+				60680D282B879EB50046D15D /* StoreEntityImages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,15 +241,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6026584F2B8D167F00CE9368 /* EntityManager.swift in Sources */,
 				602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */,
 				602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */,
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
 				607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */,
-				60680D272B879D450046D15D /* ShopEntityAPI.swift in Sources */,
+				60680D272B879D450046D15D /* StoreEntityAPI.swift in Sources */,
 				60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */,
-				60680D292B879EB50046D15D /* ShopEntityImages.swift in Sources */,
+				60680D292B879EB50046D15D /* StoreEntityImages.swift in Sources */,
 				60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */,
-				606804C22B55C2E200E3B4D9 /* Blitz_DealApp.swift in Sources */,
+				606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

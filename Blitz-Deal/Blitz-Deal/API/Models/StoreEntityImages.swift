@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShopEntityImages : Codable {
+struct StoreEntityImages : Codable {
     var banner: String?
     var logo: String?
     var icon: String?
