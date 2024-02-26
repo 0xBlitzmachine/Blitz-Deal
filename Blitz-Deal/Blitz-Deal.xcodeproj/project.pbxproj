@@ -63,6 +63,23 @@
 			path = PersistentCotainer;
 			sourceTree = "<group>";
 		};
+		6026584A2B8D12CE00CE9368 /* AppCore */ = {
+			isa = PBXGroup;
+			children = (
+				606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */,
+				6026584B2B8D130A00CE9368 /* Views */,
+			);
+			path = AppCore;
+			sourceTree = "<group>";
+		};
+		6026584B2B8D130A00CE9368 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				606804C32B55C2E200E3B4D9 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		606804B52B55C2E200E3B4D9 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +99,9 @@
 		606804C02B55C2E200E3B4D9 /* Blitz-Deal */ = {
 			isa = PBXGroup;
 			children = (
+				6026584A2B8D12CE00CE9368 /* AppCore */,
 				602658432B8D06A900CE9368 /* CoreData */,
 				60680D242B879CF40046D15D /* API */,
-				606804C12B55C2E200E3B4D9 /* Blitz_DealApp.swift */,
-				606804C32B55C2E200E3B4D9 /* ContentView.swift */,
 				606804C52B55C2E300E3B4D9 /* Assets.xcassets */,
 				606804C72B55C2E300E3B4D9 /* Preview Content */,
 			);
