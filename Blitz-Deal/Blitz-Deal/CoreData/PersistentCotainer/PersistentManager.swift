@@ -13,9 +13,8 @@ class PersistentManager {
     // Single instance of PersistentManager
     static let shared: PersistentManager = .init()
     
-    // CoreData StoreInformation Container
     private let container: NSPersistentContainer
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
     
     // Load Container by its Modelname and load PersistentStore
     init() {
@@ -29,23 +28,12 @@ class PersistentManager {
     }
     
     // Fetch all Shop Information Entities from the PersistentStore into our Memory
-    func fetchDataIntoContext() async -> [ShopInfo]? {
-        do {
-            return try context.fetch(ShopInfo.fetchRequest())
-        } catch let error as NSError {
-            print("## CORE DATA: Fetching data failed ##")
-            print(error.localizedDescription)
-            return nil
-        }
+    func fetchDataIntoContext() async throws -> [ShopInfo]? {
+        return try context.fetch(ShopInfo.fetchRequest())
     }
     
     // Try to save changes on Entities in our Memory to PersistentStore
-    func saveContextChanges() {
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("## CORE DATA: Saving Context failed ##")
-            print(error.localizedDescription)
-        }
+    func saveContextChanges() throws {
+        try context.save()
     }
 }
