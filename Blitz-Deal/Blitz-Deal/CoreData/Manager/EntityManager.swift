@@ -8,10 +8,13 @@
 import Foundation
 
 class EntityManager: ObservableObject {
+    // Create single instance of EntityManager
     static let shared: EntityManager = .init()
     
+    // Property Wrapper for fetched entities to update the view(s)
     @Published var storeEntities: [ShopInfo]? = .none
     
+    // Load entities from PersistentStore into Memory on EntityManager init()
     init() {
         Task {
             self.storeEntities = await PersistentManager.shared.fetchDataIntoContext()
@@ -19,6 +22,8 @@ class EntityManager: ObservableObject {
     }
 }
 
+
+// Extensions for Entity Handling
 extension EntityManager {
     func createEntity(storeID: String?, storeName: String?, isActive: Int?, images: StoreEntityImages?) {
         let storeEntity = ShopInfo.init(context: PersistentManager.shared.context)

@@ -10,7 +10,6 @@
 		602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */; };
 		602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentManager.swift */; };
 		6026584F2B8D167F00CE9368 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026584E2B8D167F00CE9368 /* EntityManager.swift */; };
-		602658552B8D248300CE9368 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658542B8D248300CE9368 /* CoreDataError.swift */; };
 		606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* AppCore.swift */; };
 		606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C32B55C2E200E3B4D9 /* ContentView.swift */; };
 		606804C62B55C2E300E3B4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C52B55C2E300E3B4D9 /* Assets.xcassets */; };
@@ -26,7 +25,6 @@
 		602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
 		602658482B8D08B500CE9368 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		6026584E2B8D167F00CE9368 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
-		602658542B8D248300CE9368 /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 		606804BE2B55C2E200E3B4D9 /* Blitz-Deal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blitz-Deal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606804C12B55C2E200E3B4D9 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		606804C32B55C2E200E3B4D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		602658532B8D246D00CE9368 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				602658542B8D248300CE9368 /* CoreDataError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -260,7 +257,6 @@
 				60680D272B879D450046D15D /* StoreEntityAPI.swift in Sources */,
 				60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */,
 				60680D292B879EB50046D15D /* StoreEntityImages.swift in Sources */,
-				602658552B8D248300CE9368 /* CoreDataError.swift in Sources */,
 				60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */,
 				606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */,
 			);
