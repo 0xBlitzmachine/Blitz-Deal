@@ -26,26 +26,4 @@ class PersistentManager {
             }
         }
     }
-    
-    // Fetch all Shop Information Entities from the PersistentStore into our Memory
-    func fetchDataIntoContext() async -> [ShopInfo]? {
-        do {
-            return try context.fetch(ShopInfo.fetchRequest())
-        } catch let error as NSError {
-            print("CoreData: " + error.localizedDescription)
-            return nil
-        }
-        
-    }
-    
-    // Try to save changes on Entities in our Memory to PersistentStore
-    func saveContextChanges() async {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error as NSError {
-                print("CoreData: " + error.localizedDescription)
-            }
-        }
-    }
 }
