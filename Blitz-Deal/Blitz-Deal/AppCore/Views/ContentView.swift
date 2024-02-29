@@ -13,8 +13,14 @@ struct ContentView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(entityManager.storeEntities, id: \.storeName) { storeEntity in
-                    Text(storeEntity.storeName ?? "Error")
+                ForEach(self.entityManager.storeEntities, id: \.storeID) { storeEntity in
+                    VStack {
+                        Text(storeEntity.storeName ?? "Error")
+                        Text(storeEntity.storeID ?? "-1")
+                        Text(storeEntity.isActive?.description ?? "-1")
+                    }
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                   
                 }
                 .onDelete(perform: { indexSet in
                     let entity = self.entityManager.rawStoreEntities[indexSet.first!]
