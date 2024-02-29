@@ -21,6 +21,12 @@ struct ContentView: View {
                     self.entityManager.deleteEntity(entity: entity)
                 })
             }
+            
+            Button("Delete records") {
+                self.entityManager.rawStoreEntities.forEach { shopInfo in
+                    self.entityManager.deleteEntity(entity: shopInfo)
+                }
+            }
         }
     }
 }

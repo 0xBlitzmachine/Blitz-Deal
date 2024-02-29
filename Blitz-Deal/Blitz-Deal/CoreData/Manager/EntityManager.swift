@@ -19,28 +19,7 @@ class EntityManager: ObservableObject {
     
     init() {
         self.fetchIntoContext()
-        
-        if rawStoreEntities.isEmpty {
-            print("Raw Store Entities was empty! Fetching data from API Service ...")
-            Task {
-                let apiData: [StoreEntityAPI]? = try await CheapSharkService.getData(.storesInfo)
-                print("Data successfully fetched!")
-                if let apiData = apiData {
-                    print("API Data was not nil! Procceeding ...")
-                    apiData.forEach { storeEntity in
-                        print("'\(storeEntity.storeName ?? "Error")' - ID: '\(storeEntity.storeID ?? "0")' has been created!")
-                        self.createEntity(entity: storeEntity)
-                    }
-                }
-            }
-        } else {
-            Task {
-                let entities: [StoreEntityAPI]? = try await CheapSharkService.getData(.storesInfo)
-                if let entities = entities {
-                    self.compareStoreEntities(entities)
-                }
-            }
-        }
+        self.validateDataAvailability()
     }
 }
 
@@ -77,37 +56,22 @@ extension EntityManager {
 }
 
 extension EntityManager {
-    private func compareStoreEntities(_ entities: [StoreEntityAPI]) {
+    private func validateDataAvailability() {
+        guard rawStoreEntities.isEmpty else { return }
+        
         Task {
-            entities.forEach { entity in
-                let shopInfo = self.rawStoreEntities.first(where: { $0.storeID == entity.storeID})
-                
-                if shopInfo?.storeID != entity.storeID {
-                    shopInfo?.storeID = entity.storeID
-                }
-                
-                if shopInfo?.storeName != entity.storeName {
-                    shopInfo?.storeName = entity.storeName
-                }
-                
-                if shopInfo?.isActive ?? 0 != entity.isActive ?? 0 {
-                    shopInfo?.isActive = Int16(entity.isActive ?? 0)
-                }
-                
-                if shopInfo?.shopLogos?.banner != entity.images?.banner {
-                    shopInfo?.shopLogos?.banner = entity.images?.banner
-                }
-                
-                if shopInfo?.shopLogos?.logo != entity.images?.logo {
-                    shopInfo?.shopLogos?.logo = entity.images?.logo
-                }
-                
-                if shopInfo?.shopLogos?.icon != entity.images?.icon {
-                    shopInfo?.shopLogos?.icon = entity.images?.icon
-                }
+            let data: [StoreEntityAPI]? = try await CheapSharkService.getData(.storesInfo)
+            guard let data = data else { return }
+            
+            data.forEach { storeEntity in
+                storeEntity.toShopInfo(context: self.persistentManager.context)
             }
             self.saveContext()
         }
+    }
+    
+    private func compareStoreEntities(_ entities: [StoreEntityAPI]) {
+        
     }
 }
 
