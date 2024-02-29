@@ -7,36 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */; };
-		602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentManager.swift */; };
-		6026584F2B8D167F00CE9368 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026584E2B8D167F00CE9368 /* EntityManager.swift */; };
+		602658492B8D08B500CE9368 /* PersistentStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentStoreManager.swift */; };
+		6026584F2B8D167F00CE9368 /* StoreObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026584E2B8D167F00CE9368 /* StoreObjectsManager.swift */; };
+		605805F52B90F03600211E33 /* Stores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 605805F22B90F03600211E33 /* Stores.xcdatamodeld */; };
+		605805FB2B91051D00211E33 /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605805FA2B91051D00211E33 /* ObjectManager.swift */; };
+		605806062B910CE200211E33 /* StoreObjectsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605806052B910CE200211E33 /* StoreObjectsHandler.swift */; };
 		606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* AppCore.swift */; };
 		606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C32B55C2E200E3B4D9 /* ContentView.swift */; };
 		606804C62B55C2E300E3B4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C52B55C2E300E3B4D9 /* Assets.xcassets */; };
 		606804C92B55C2E300E3B4D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 606804C82B55C2E300E3B4D9 /* Preview Assets.xcassets */; };
-		60680D272B879D450046D15D /* StoreEntityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D262B879D450046D15D /* StoreEntityAPI.swift */; };
-		60680D292B879EB50046D15D /* StoreEntityImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D282B879EB50046D15D /* StoreEntityImages.swift */; };
+		60680D272B879D450046D15D /* CheapSharkStoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D262B879D450046D15D /* CheapSharkStoreObject.swift */; };
 		60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2B2B879FBC0046D15D /* CheapSharkService.swift */; };
 		60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */; };
 		607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */; };
-		6095266B2B8F4E520035B59E /* ModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095266A2B8F4E520035B59E /* ModelConverter.swift */; };
+		6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095266A2B8F4E520035B59E /* CastToObjExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
-		602658482B8D08B500CE9368 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
-		6026584E2B8D167F00CE9368 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		602658482B8D08B500CE9368 /* PersistentStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreManager.swift; sourceTree = "<group>"; };
+		6026584E2B8D167F00CE9368 /* StoreObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObjectsManager.swift; sourceTree = "<group>"; };
+		605805F32B90F03600211E33 /* Stores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stores.xcdatamodel; sourceTree = "<group>"; };
+		605805F42B90F03600211E33 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
+		605805FA2B91051D00211E33 /* ObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectManager.swift; sourceTree = "<group>"; };
+		605806052B910CE200211E33 /* StoreObjectsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObjectsHandler.swift; sourceTree = "<group>"; };
 		606804BE2B55C2E200E3B4D9 /* Blitz-Deal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blitz-Deal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606804C12B55C2E200E3B4D9 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		606804C32B55C2E200E3B4D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		606804C52B55C2E300E3B4D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		606804C82B55C2E300E3B4D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		60680D262B879D450046D15D /* StoreEntityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEntityAPI.swift; sourceTree = "<group>"; };
-		60680D282B879EB50046D15D /* StoreEntityImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEntityImages.swift; sourceTree = "<group>"; };
+		60680D262B879D450046D15D /* CheapSharkStoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkStoreObject.swift; sourceTree = "<group>"; };
 		60680D2B2B879FBC0046D15D /* CheapSharkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkService.swift; sourceTree = "<group>"; };
 		60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkEndpoint.swift; sourceTree = "<group>"; };
 		607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkServiceError.swift; sourceTree = "<group>"; };
-		6095266A2B8F4E520035B59E /* ModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConverter.swift; sourceTree = "<group>"; };
+		6095266A2B8F4E520035B59E /* CastToObjExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastToObjExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,38 +53,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		602658432B8D06A900CE9368 /* CoreData */ = {
+		602658432B8D06A900CE9368 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				605805F92B91050500211E33 /* Protocols */,
 				609526692B8F4E360035B59E /* Extentsion */,
 				602658532B8D246D00CE9368 /* Enums */,
 				6026584D2B8D166A00CE9368 /* Manager */,
 				602658442B8D06B000CE9368 /* PersistentCotainer */,
 			);
-			path = CoreData;
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		602658442B8D06B000CE9368 /* PersistentCotainer */ = {
 			isa = PBXGroup;
 			children = (
-				602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */,
-				602658482B8D08B500CE9368 /* PersistentManager.swift */,
+				605805F62B90FF1600211E33 /* Stores */,
+				602658482B8D08B500CE9368 /* PersistentStoreManager.swift */,
+				605805F22B90F03600211E33 /* Stores.xcdatamodeld */,
 			);
 			path = PersistentCotainer;
 			sourceTree = "<group>";
 		};
-		6026584A2B8D12CE00CE9368 /* AppCore */ = {
+		6026584A2B8D12CE00CE9368 /* App Core */ = {
 			isa = PBXGroup;
 			children = (
 				606804C12B55C2E200E3B4D9 /* AppCore.swift */,
+				605805FE2B910C7500211E33 /* ViewModels */,
 				6026584B2B8D130A00CE9368 /* Views */,
 			);
-			path = AppCore;
+			path = "App Core";
 			sourceTree = "<group>";
 		};
 		6026584B2B8D130A00CE9368 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				605806012B910CB300211E33 /* Games */,
+				605806002B910C9C00211E33 /* Deals */,
+				605805FF2B910C8E00211E33 /* Stores */,
 				606804C32B55C2E200E3B4D9 /* ContentView.swift */,
 			);
 			path = Views;
@@ -90,7 +99,7 @@
 		6026584D2B8D166A00CE9368 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				6026584E2B8D167F00CE9368 /* EntityManager.swift */,
+				6026584E2B8D167F00CE9368 /* StoreObjectsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -100,6 +109,74 @@
 			children = (
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		605805F62B90FF1600211E33 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		605805F92B91050500211E33 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				605805FA2B91051D00211E33 /* ObjectManager.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		605805FE2B910C7500211E33 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				605806042B910CC700211E33 /* Games */,
+				605806032B910CC100211E33 /* Deals */,
+				605806022B910CBC00211E33 /* Stores */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		605805FF2B910C8E00211E33 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		605806002B910C9C00211E33 /* Deals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Deals;
+			sourceTree = "<group>";
+		};
+		605806012B910CB300211E33 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		605806022B910CBC00211E33 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				605806052B910CE200211E33 /* StoreObjectsHandler.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		605806032B910CC100211E33 /* Deals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Deals;
+			sourceTree = "<group>";
+		};
+		605806042B910CC700211E33 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Games;
 			sourceTree = "<group>";
 		};
 		606804B52B55C2E200E3B4D9 = {
@@ -121,8 +198,8 @@
 		606804C02B55C2E200E3B4D9 /* Blitz-Deal */ = {
 			isa = PBXGroup;
 			children = (
-				6026584A2B8D12CE00CE9368 /* AppCore */,
-				602658432B8D06A900CE9368 /* CoreData */,
+				6026584A2B8D12CE00CE9368 /* App Core */,
+				602658432B8D06A900CE9368 /* Core Data */,
 				60680D242B879CF40046D15D /* API */,
 				606804C52B55C2E300E3B4D9 /* Assets.xcassets */,
 				606804C72B55C2E300E3B4D9 /* Preview Content */,
@@ -152,8 +229,7 @@
 		60680D252B879D0B0046D15D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60680D262B879D450046D15D /* StoreEntityAPI.swift */,
-				60680D282B879EB50046D15D /* StoreEntityImages.swift */,
+				60680D262B879D450046D15D /* CheapSharkStoreObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,7 +261,7 @@
 		609526692B8F4E360035B59E /* Extentsion */ = {
 			isa = PBXGroup;
 			children = (
-				6095266A2B8F4E520035B59E /* ModelConverter.swift */,
+				6095266A2B8F4E520035B59E /* CastToObjExt.swift */,
 			);
 			path = Extentsion;
 			sourceTree = "<group>";
@@ -260,15 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6026584F2B8D167F00CE9368 /* EntityManager.swift in Sources */,
-				602658472B8D071800CE9368 /* StoreInformation.xcdatamodeld in Sources */,
-				602658492B8D08B500CE9368 /* PersistentManager.swift in Sources */,
+				605805FB2B91051D00211E33 /* ObjectManager.swift in Sources */,
+				6026584F2B8D167F00CE9368 /* StoreObjectsManager.swift in Sources */,
+				602658492B8D08B500CE9368 /* PersistentStoreManager.swift in Sources */,
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
 				607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */,
-				60680D272B879D450046D15D /* StoreEntityAPI.swift in Sources */,
+				605806062B910CE200211E33 /* StoreObjectsHandler.swift in Sources */,
+				60680D272B879D450046D15D /* CheapSharkStoreObject.swift in Sources */,
 				60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */,
-				60680D292B879EB50046D15D /* StoreEntityImages.swift in Sources */,
-				6095266B2B8F4E520035B59E /* ModelConverter.swift in Sources */,
+				6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */,
+				605805F52B90F03600211E33 /* Stores.xcdatamodeld in Sources */,
 				60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */,
 				606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */,
 			);
@@ -476,13 +553,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		602658452B8D071800CE9368 /* StoreInformation.xcdatamodeld */ = {
+		605805F22B90F03600211E33 /* Stores.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */,
+				605805F32B90F03600211E33 /* Stores.xcdatamodel */,
+				605805F42B90F03600211E33 /* StoreInformation.xcdatamodel */,
 			);
-			currentVersion = 602658462B8D071800CE9368 /* StoreInformation.xcdatamodel */;
-			path = StoreInformation.xcdatamodeld;
+			currentVersion = 605805F32B90F03600211E33 /* Stores.xcdatamodel */;
+			path = Stores.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

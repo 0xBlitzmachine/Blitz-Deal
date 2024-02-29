@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var entityManager: EntityManager = .shared
+    @StateObject private var entityManager: StoreObjectsManager = .shared
     
     var body: some View {
         VStack {
             List {
+                // Store View: Sort by User - SortedBy: IsActive - storeName
                 ForEach(self.entityManager.storeEntities.sorted(by: { Int($0.storeID!)! < Int($1.storeID!)! }), id: \.storeID) { storeEntity in
                     VStack {
+                        AsyncImage(url: URL(string: storeEntity))
+                        
                         Text(storeEntity.storeName ?? "Error")
                         Text(storeEntity.storeID ?? "-1")
                         Text(storeEntity.isActive?.description ?? "-1")
@@ -39,5 +42,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(EntityManager.shared)
+        .environmentObject(StoreObjectsManager.shared)
 }

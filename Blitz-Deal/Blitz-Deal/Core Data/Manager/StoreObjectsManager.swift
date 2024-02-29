@@ -6,71 +6,39 @@
 //
 
 import Foundation
+import CoreData
 
-@MainActor
-class EntityManager: ObservableObject {
-    
-    // Create single instance of EntityManager
-    private let persistentManager = PersistentManager.shared
-    static let shared: EntityManager = .init()
-    
-    @Published var storeEntities = [StoreEntityAPI]()
-    var rawStoreEntities = [ShopInfo]()
-    
-    init() {
-        self.fetchIntoContext()
-        
-        Task {
-            await self.validateLocalDataAvailability()
-        }
-    }
-}
 
-extension EntityManager {
-    private func saveContext() {
-        if self.persistentManager.context.hasChanges {
-            do {
-                try self.persistentManager.context.save()
-                self.fetchIntoContext()
-            } catch let error as NSError {
-                print("CoreData - SaveContext: " + error.localizedDescription)
-            }
-        }
-    }
+class StoreObjectsManager : ObjectManager {
+    private let persistentStoreManager: PersistentStoreManager = .singletonInstance
     
-    private func fetchIntoContext() {
+    func fetchIntoContext(_ completion: @escaping (Result<[StoreObject], Error>) -> Void) {
         do {
-            self.rawStoreEntities = try self.persistentManager.context.fetch(ShopInfo.fetchRequest())
-            self.storeEntities = self.rawStoreEntities.toStoreEntityArray()
-        } catch let error as NSError {
-            print("CoreData - FetchIntoContext: " + error.localizedDescription)
+            let objects = try self.persistentStoreManager.context.fetch(StoreObject.fetchRequest())
+            completion(.success(objects))
+        } catch {
+            completion(.failure(error))
         }
     }
     
-    func deleteEntity(entity: ShopInfo) {
-        self.persistentManager.context.delete(entity)
-        self.saveContext()
-    }
-    
-    func createEntity(entity: StoreEntityAPI) {
-        entity.toShopInfo(context: self.persistentManager.context)
-        self.saveContext()
+    func saveContext() {
+        guard self.persistentStoreManager.context.hasChanges else { return }
+        
+        do {
+            try self.persistentStoreManager.context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
-extension EntityManager {
+extension StoreObjectsManager {
+    static let singletonInstance: StoreObjectsManager = .init()
+}
+
+extension StoreObjectsManager {
     private func validateLocalDataAvailability() async {
-        
-        // MARK: Test list for testing function
-        /*
-         var data: [StoreEntityAPI] {
-             [
-                StoreEntityAPI(storeID: "1", storeName: "Blitz", isActive: 3, images: StoreEntityImages(banner: "banner", logo: "logo", icon: "icon"))
-             ]
-         }
-         */
-         
-        var data: [StoreEntityAPI]?
+        var data: [CheapSharkStoreObject]?
         
         do {
             data = try await CheapSharkService.getData(.storesInfo)
@@ -134,6 +102,7 @@ extension EntityManager {
         }
     }
 }
+
 
 
 

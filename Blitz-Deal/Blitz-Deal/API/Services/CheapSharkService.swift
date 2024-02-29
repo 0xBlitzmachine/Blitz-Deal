@@ -12,7 +12,7 @@ class CheapSharkService {
     // TODO: Add ability to add parameters to endpoints!
     static func getData<T: Codable>(_ endpoint: CheapSharkEndpoint) async throws -> T? {
         let baseUrl = "https://cheapshark.com/api/1.0"
-        var decodedData: T? = nil
+        var decodedData: T?
         
         // Validated the URL
         guard let url = URL(string: (baseUrl + endpoint.toString())) else {

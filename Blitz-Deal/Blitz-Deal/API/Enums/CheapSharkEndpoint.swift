@@ -14,8 +14,6 @@ enum CheapSharkEndpoint: String {
     case gameLookUp
     case multipleGameLookUp
     case storesInfo
-    
-    
 }
 
 extension CheapSharkEndpoint {
