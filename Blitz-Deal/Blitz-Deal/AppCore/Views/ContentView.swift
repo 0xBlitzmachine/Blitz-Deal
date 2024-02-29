@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(self.entityManager.storeEntities, id: \.storeID) { storeEntity in
+                ForEach(self.entityManager.storeEntities.sorted(by: { Int($0.storeID!)! < Int($1.storeID!)! }), id: \.storeID) { storeEntity in
                     VStack {
                         Text(storeEntity.storeName ?? "Error")
                         Text(storeEntity.storeID ?? "-1")

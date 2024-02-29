@@ -87,7 +87,11 @@ extension EntityManager {
             
         } else {
             data.forEach { storeEntity in
-                guard let entity = self.rawStoreEntities.first(where: { $0.storeID == storeEntity.storeID}) else { return }
+                guard let entity = self.rawStoreEntities.first(where: { $0.storeID == storeEntity.storeID}) else {
+                    print("\(storeEntity.storeName!) was not in the List! Adding it!")
+                    self.createEntity(entity: storeEntity)
+                    return
+                }
                 
                 if let storeName = storeEntity.storeName, let shopName = entity.storeName {
                     if storeName != shopName {
