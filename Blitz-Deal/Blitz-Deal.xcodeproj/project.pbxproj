@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				605805F92B91050500211E33 /* Protocols */,
-				609526692B8F4E360035B59E /* Extentsion */,
+				609526692B8F4E360035B59E /* Extensions */,
 				602658532B8D246D00CE9368 /* Enums */,
 				6026584D2B8D166A00CE9368 /* Manager */,
 				602658442B8D06B000CE9368 /* PersistentCotainer */,
@@ -258,12 +258,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		609526692B8F4E360035B59E /* Extentsion */ = {
+		609526692B8F4E360035B59E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				6095266A2B8F4E520035B59E /* CastToObjExt.swift */,
 			);
-			path = Extentsion;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

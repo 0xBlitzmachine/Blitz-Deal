@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-/*
+
 extension Array where Element == StoreObject {
     func castToCheapSharkObjectArray() -> [CheapSharkStoreObject] {
         self.map { storeObject in
@@ -19,11 +19,14 @@ extension Array where Element == StoreObject {
 
 extension StoreObject {
     func castToCheapSharkObject() -> CheapSharkStoreObject {
-        let cheapSharkStoreObject: CheapSharkStoreObject = .
-        cheapSharkStoreObject.
+        return CheapSharkStoreObject(storeID: self.storeID,
+                                     storeName: self.storeName,
+                                     isActive: self.isActive ? 1 : 0,
+                                     images: CheapSharkStoreImage(_banner: self.images?.banner,
+                                                                  _logo: self.images?.logo,
+                                                                  _icon: self.images?.icon))
     }
 }
- */
 
 
 extension CheapSharkStoreObject {
@@ -38,11 +41,12 @@ extension CheapSharkStoreObject {
 }
 
 extension CheapSharkStoreImage {
-    func castToStoreImage(context: NSManagedObjectContext) {
+    func castToStoreImage(context: NSManagedObjectContext) -> StoreImage {
         let storeImage: StoreImage = .init(context: context)
         
         storeImage.banner = self.banner
         storeImage.logo = self.logo
         storeImage.icon = self.icon
+        return storeImage
     }
 }

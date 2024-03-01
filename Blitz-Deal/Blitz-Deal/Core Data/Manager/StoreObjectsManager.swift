@@ -12,6 +12,10 @@ import CoreData
 class StoreObjectsManager : ObjectManager {
     private let persistentStoreManager: PersistentStoreManager = .singletonInstance
     
+    var context: NSManagedObjectContext {
+        return self.persistentStoreManager.context
+    }
+    
     func fetchIntoContext(_ completion: @escaping (Result<[StoreObject], Error>) -> Void) {
         do {
             let objects = try self.persistentStoreManager.context.fetch(StoreObject.fetchRequest())
@@ -36,6 +40,7 @@ extension StoreObjectsManager {
     static let singletonInstance: StoreObjectsManager = .init()
 }
 
+/*
 extension StoreObjectsManager {
     private func validateLocalDataAvailability() async {
         var data: [CheapSharkStoreObject]?
@@ -103,6 +108,6 @@ extension StoreObjectsManager {
     }
 }
 
-
+*/
 
 
