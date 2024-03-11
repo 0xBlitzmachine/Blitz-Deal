@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SSToastMessage
+
 
 struct ContentView: View {
     @StateObject private var storeObjectHandler: StoreObjectsHandler = .singletonInstance
+    @State private var showNotification = false
+
     
     var body: some View {
         VStack {
@@ -26,6 +30,14 @@ struct ContentView: View {
                     self.storeObjectHandler.deleteObject(object: object)
                 })
             }
+            
+            Button("Show Msg") {
+                self.showNotification.toggle()
+            }
+        }
+        .present(isPresented: self.$showNotification, type: .floater(verticalPadding: 60), position: .top, autohideDuration: 5.0 ) {
+            NotificationView(notificationType: .warning, notificationMessage: "This is a test message!")
+                .padding(1)
         }
     }
 }
