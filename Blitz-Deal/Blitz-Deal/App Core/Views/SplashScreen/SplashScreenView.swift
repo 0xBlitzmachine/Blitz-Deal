@@ -15,8 +15,9 @@ struct SplashScreenView: View {
     @State private var imageScale: CGSize = .init(width: 0.8, height: 0.8)
     @State private var imageShadowRadius: CGFloat = 0
     
-    @State private var readyToLoad: Bool = false
+    @State private var stackOpacity: Double = 1.0
     
+    @State private var readyToLoad: Bool = false
     @State private var loadingMessage = String()
     
     var body: some View {
@@ -51,21 +52,34 @@ struct SplashScreenView: View {
                         .padding()
                     
                     Text(self.storeObjectHandler.dataStatusMessage)
-                        .font(.system(size: 20))
-                        .fontWeight(.thin)
+                        .font(.system(size: 25))
+                        .fontWeight(.light)
+                        .fontWidth(.compressed)
                     
                     Spacer()
                 }
+                
                 .onAppear {
-                    self.storeObjectHandler.dataStatusMessage = "Preparing App .."
                     Task {
-                        try await Task.sleep(for: .seconds(1))
                         try await self.storeObjectHandler.validateDatabaseContent()
+                        
+                        withAnimation(.easeOut(duration: 2)) {
+                            self.stackOpacity = 0
+                            
+                            self.imageScale = CGSize(width: 5, height: 5)
+                            self.imageOpacity = 0
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            withAnimation {
+                                self.storeObjectHandler.validateDataLoaded()
+                            }
+                        })
                     }
                 }
             }
         }
-        
+        .opacity(self.stackOpacity)
     }
 }
 

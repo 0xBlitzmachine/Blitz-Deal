@@ -9,6 +9,11 @@ import Foundation
 
 @MainActor
 class StoreObjectsHandler: ObservableObject {
+    
+    init() {
+        self.saveAndFetchContext()
+    }
+    
     private let storeObjectManager: StoreObjectsManager = .shared
     
     @Published var dataStatusMessage = String()
@@ -38,14 +43,13 @@ extension StoreObjectsHandler {
             case .success(let success):
                 self.rawStoreObjects = success
                 self.storeObjects = success.castToCheapSharkObjectArray()
-                
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
         }
     }
     
-    private func validateDataLoaded() {
+     func validateDataLoaded() {
         guard !self.dataLoaded else { return }
         guard self.storeObjects.count > 0 else {
             self.dataStatusMessage = "Failed to load data!"
@@ -89,7 +93,6 @@ extension StoreObjectsHandler {
             try await Task.sleep(for: .seconds(0.5))
             self.saveAndFetchContext()
         }
-        self.validateDataLoaded()
     }
 }
 
