@@ -9,24 +9,13 @@ import Foundation
 
 @MainActor
 class StoreObjectsHandler: ObservableObject {
-    private let storeObjectManager: StoreObjectsManager = .singletonInstance
+    private let storeObjectManager: StoreObjectsManager = .shared
+    
+    @Published var dataStatusMessage = String()
+    @Published var dataLoaded: Bool = false
     
     @Published var storeObjects: [CheapSharkStoreObject] = .init()
     var rawStoreObjects: [StoreObject] = .init()
-    
-    init() {
-        self.storeObjectManager.fetchIntoContext { result in
-            switch result {
-            case .success(let success):
-                self.rawStoreObjects = success
-                self.storeObjects = success.castToCheapSharkObjectArray()
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
-        
-        self.validateDatabaseContent()
-    }
     
     func createObject(object: CheapSharkStoreObject) {
         object.castToStoreObject(context: self.storeObjectManager.context)
@@ -39,7 +28,9 @@ class StoreObjectsHandler: ObservableObject {
     }
 }
 
+
 extension StoreObjectsHandler {
+    
     private func saveAndFetchContext() {
         self.storeObjectManager.saveContext()
         self.storeObjectManager.fetchIntoContext { result in
@@ -53,38 +44,55 @@ extension StoreObjectsHandler {
             }
         }
     }
-}
-
-extension StoreObjectsHandler {
-    private func validateDatabaseContent() {
-        Task {
-            let data: [CheapSharkStoreObject]? = try await CheapSharkService.getData(.storesInfo)
-            
-            if self.rawStoreObjects.isEmpty {
-                print("RawStoreObjects is Empty")
-                if let data = data {
-                    data.forEach({ object in
-                        object.castToStoreObject(context: self.storeObjectManager.context)
-                    })
-                    self.saveAndFetchContext()
-                }
-            } else {
-                print("RawStoreObjects not Empty!")
-                self.rawStoreObjects.forEach { object in
-                    self.deleteObject(object: object)
-                }
-                
-                if let data = data {
-                    data.forEach({ object in
-                        object.castToStoreObject(context: self.storeObjectManager.context)
-                    })
-                }
+    
+    private func validateDataLoaded() {
+        guard !self.dataLoaded else { return }
+        guard self.storeObjects.count > 0 else {
+            self.dataStatusMessage = "Failed to load data!"
+            return
+        }
+        self.dataLoaded.toggle()
+    }
+    
+    func validateDatabaseContent() async throws {
+        self.dataStatusMessage = "Trying to get data from CheapShark ..."
+        try await Task.sleep(for: .seconds(0.3))
+        
+        let data: [CheapSharkStoreObject]? = try await CheapSharkService.getData(endpoint: .storesInfo)
+        self.dataStatusMessage = "Proccessing data ..."
+        try await Task.sleep(for: .seconds(0.3))
+        
+        if self.rawStoreObjects.isEmpty {
+            self.dataStatusMessage = "Filling local database ..."
+            try await Task.sleep(for: .seconds(0.3))
+            if let data {
+                data.forEach({ object in
+                    object.castToStoreObject(context: self.storeObjectManager.context)
+                })
+                self.dataStatusMessage = "Database filled!"
                 self.saveAndFetchContext()
             }
+        } else {
+            self.dataStatusMessage = "Correcting local database ..."
+            try await Task.sleep(for: .seconds(0.3))
+            self.rawStoreObjects.forEach { object in
+                self.deleteObject(object: object)
+            }
+            
+            if let data {
+                data.forEach({ object in
+                    object.castToStoreObject(context: self.storeObjectManager.context)
+                })
+            }
+
+            self.dataStatusMessage = "Database corrected!"
+            try await Task.sleep(for: .seconds(0.5))
+            self.saveAndFetchContext()
         }
+        self.validateDataLoaded()
     }
 }
 
 extension StoreObjectsHandler {
-    static let singletonInstance: StoreObjectsHandler = .init()
+    static let shared: StoreObjectsHandler = .init()
 }

@@ -20,12 +20,13 @@ struct NotificationView: View {
             
             VStack {
                 Text(self.notificationType.title)
+                    .foregroundStyle(self.notificationType.color)
                     .fontDesign(.rounded)
-                    .fontWeight(.ultraLight)
+                    .fontWeight(.light)
                     .font(.title)
-                    .padding(.top, 5)
                   
                 Divider()
+                    .background(.white)
                     .padding([.leading, .trailing], 25)
                 
                 Text(self.notificationMessage)

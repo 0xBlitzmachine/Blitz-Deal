@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CheapSharkEndpoint: String {
+enum CheapSharkEndpoint {
     case listOfDeals
     case listOfGames
     case dealLookUp
@@ -17,7 +17,12 @@ enum CheapSharkEndpoint: String {
 }
 
 extension CheapSharkEndpoint {
-    func toString() -> String {
+    
+    private static let dealsEndpoint = "/deals?"
+    private static let gamesEndpoint = "/games?"
+    private static let storesEndpoint = "/stores?"
+    
+    func getEndpointString() -> String {
         switch self {
         case .listOfDeals:
             return CheapSharkEndpoint.dealsEndpoint
@@ -33,10 +38,4 @@ extension CheapSharkEndpoint {
             return CheapSharkEndpoint.storesEndpoint
         }
     }
-}
-
-extension CheapSharkEndpoint {
-    private static let dealsEndpoint = "/deals?"
-    private static let gamesEndpoint = "/games?"
-    private static let storesEndpoint = "/stores?"
 }

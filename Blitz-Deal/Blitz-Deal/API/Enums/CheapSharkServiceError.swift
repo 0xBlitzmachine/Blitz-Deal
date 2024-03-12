@@ -8,8 +8,8 @@
 import Foundation
 
 enum CheapSharkServiceError: Error {
-    case badURL(String)
-    case badResponseCode(String)
+    case badURL
+    case badResponseCode(Int)
     case failedToDecode(String)
-    case unknown(String)
+    case unknown
 }

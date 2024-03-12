@@ -25,5 +25,5 @@ class PersistentStoreManager {
 }
 
 extension PersistentStoreManager {
-    static let singletonInstance: PersistentStoreManager = .init()
+    static let shared: PersistentStoreManager = .init()
 }

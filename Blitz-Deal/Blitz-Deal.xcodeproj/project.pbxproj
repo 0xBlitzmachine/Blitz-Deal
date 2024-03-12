@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		601E1BE42BA057E5002CEA05 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E1BE32BA057E5002CEA05 /* NotificationHandler.swift */; };
 		602658492B8D08B500CE9368 /* PersistentStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602658482B8D08B500CE9368 /* PersistentStoreManager.swift */; };
 		6026584F2B8D167F00CE9368 /* StoreObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026584E2B8D167F00CE9368 /* StoreObjectsManager.swift */; };
 		605805F52B90F03600211E33 /* Stores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 605805F22B90F03600211E33 /* Stores.xcdatamodeld */; };
-		605805FB2B91051D00211E33 /* ObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605805FA2B91051D00211E33 /* ObjectManager.swift */; };
 		605806062B910CE200211E33 /* StoreObjectsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605806052B910CE200211E33 /* StoreObjectsHandler.swift */; };
 		606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C12B55C2E200E3B4D9 /* AppCore.swift */; };
 		606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606804C32B55C2E200E3B4D9 /* ContentView.swift */; };
@@ -20,6 +20,7 @@
 		60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2B2B879FBC0046D15D /* CheapSharkService.swift */; };
 		60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */; };
 		607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */; };
+		6080693C2BA06ED800FD49A8 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080693B2BA06ED800FD49A8 /* SplashScreenView.swift */; };
 		6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095266A2B8F4E520035B59E /* CastToObjExt.swift */; };
 		60C1B3042B95E319002094DF /* SSToastMessage in Frameworks */ = {isa = PBXBuildFile; productRef = 60C1B3032B95E319002094DF /* SSToastMessage */; };
 		60C1B3072B9F3663002094DF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3062B9F3663002094DF /* NotificationView.swift */; };
@@ -27,11 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		601E1BE32BA057E5002CEA05 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		602658482B8D08B500CE9368 /* PersistentStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreManager.swift; sourceTree = "<group>"; };
 		6026584E2B8D167F00CE9368 /* StoreObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObjectsManager.swift; sourceTree = "<group>"; };
 		605805F32B90F03600211E33 /* Stores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stores.xcdatamodel; sourceTree = "<group>"; };
 		605805F42B90F03600211E33 /* StoreInformation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreInformation.xcdatamodel; sourceTree = "<group>"; };
-		605805FA2B91051D00211E33 /* ObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectManager.swift; sourceTree = "<group>"; };
 		605806052B910CE200211E33 /* StoreObjectsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObjectsHandler.swift; sourceTree = "<group>"; };
 		606804BE2B55C2E200E3B4D9 /* Blitz-Deal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blitz-Deal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		606804C12B55C2E200E3B4D9 /* AppCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		60680D2B2B879FBC0046D15D /* CheapSharkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkService.swift; sourceTree = "<group>"; };
 		60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkEndpoint.swift; sourceTree = "<group>"; };
 		607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkServiceError.swift; sourceTree = "<group>"; };
+		6080693B2BA06ED800FD49A8 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		6095266A2B8F4E520035B59E /* CastToObjExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastToObjExt.swift; sourceTree = "<group>"; };
 		60C1B3062B9F3663002094DF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		60C1B3092B9F3FD4002094DF /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
@@ -59,10 +61,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		601E1BE02BA056DE002CEA05 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				601E1BE32BA057E5002CEA05 /* NotificationHandler.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		601E1BE22BA0578B002CEA05 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				60C1B3092B9F3FD4002094DF /* NotificationType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		602658432B8D06A900CE9368 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				605805F92B91050500211E33 /* Protocols */,
 				609526692B8F4E360035B59E /* Extensions */,
 				602658532B8D246D00CE9368 /* Enums */,
 				6026584D2B8D166A00CE9368 /* Manager */,
@@ -75,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				605805F62B90FF1600211E33 /* Stores */,
-				602658482B8D08B500CE9368 /* PersistentStoreManager.swift */,
-				605805F22B90F03600211E33 /* Stores.xcdatamodeld */,
 			);
 			path = PersistentCotainer;
 			sourceTree = "<group>";
@@ -94,6 +109,7 @@
 		6026584B2B8D130A00CE9368 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6080693A2BA06EAC00FD49A8 /* SplashScreen */,
 				60C1B3052B9F3639002094DF /* Notification */,
 				605806012B910CB300211E33 /* Games */,
 				605806002B910C9C00211E33 /* Deals */,
@@ -121,21 +137,16 @@
 		605805F62B90FF1600211E33 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				602658482B8D08B500CE9368 /* PersistentStoreManager.swift */,
+				605805F22B90F03600211E33 /* Stores.xcdatamodeld */,
 			);
 			path = Stores;
-			sourceTree = "<group>";
-		};
-		605805F92B91050500211E33 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				605805FA2B91051D00211E33 /* ObjectManager.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		605805FE2B910C7500211E33 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				601E1BE02BA056DE002CEA05 /* Notification */,
 				605806042B910CC700211E33 /* Games */,
 				605806032B910CC100211E33 /* Deals */,
 				605806022B910CBC00211E33 /* Stores */,
@@ -265,6 +276,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		6080693A2BA06EAC00FD49A8 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6080693B2BA06ED800FD49A8 /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		609526692B8F4E360035B59E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,18 +295,10 @@
 		60C1B3052B9F3639002094DF /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				60C1B3082B9F3FBF002094DF /* Enums */,
+				601E1BE22BA0578B002CEA05 /* Enums */,
 				60C1B3062B9F3663002094DF /* NotificationView.swift */,
 			);
 			path = Notification;
-			sourceTree = "<group>";
-		};
-		60C1B3082B9F3FBF002094DF /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				60C1B3092B9F3FD4002094DF /* NotificationType.swift */,
-			);
-			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,8 +378,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C1B30A2B9F3FD4002094DF /* NotificationType.swift in Sources */,
-				605805FB2B91051D00211E33 /* ObjectManager.swift in Sources */,
 				6026584F2B8D167F00CE9368 /* StoreObjectsManager.swift in Sources */,
+				6080693C2BA06ED800FD49A8 /* SplashScreenView.swift in Sources */,
 				602658492B8D08B500CE9368 /* PersistentStoreManager.swift in Sources */,
 				60C1B3072B9F3663002094DF /* NotificationView.swift in Sources */,
 				606804C42B55C2E200E3B4D9 /* ContentView.swift in Sources */,
@@ -376,6 +387,7 @@
 				605806062B910CE200211E33 /* StoreObjectsHandler.swift in Sources */,
 				60680D272B879D450046D15D /* CheapSharkStoreObject.swift in Sources */,
 				60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */,
+				601E1BE42BA057E5002CEA05 /* NotificationHandler.swift in Sources */,
 				6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */,
 				605805F52B90F03600211E33 /* Stores.xcdatamodeld in Sources */,
 				60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */,
