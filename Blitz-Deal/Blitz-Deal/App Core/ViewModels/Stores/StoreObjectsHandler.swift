@@ -67,13 +67,14 @@ extension StoreObjectsHandler {
         try await Task.sleep(for: .seconds(0.3))
         
         if self.rawStoreObjects.isEmpty {
-            self.dataStatusMessage = "Filling local database ..."
+            self.dataStatusMessage = "Local database is empty"
             try await Task.sleep(for: .seconds(0.3))
+            self.dataStatusMessage = "Filling local database ..."
             if let data {
                 data.forEach({ object in
                     object.castToStoreObject(context: self.storeObjectManager.context)
                 })
-                self.dataStatusMessage = "Database filled!"
+                self.dataStatusMessage = "Local database filled!"
                 self.saveAndFetchContext()
             }
         } else {

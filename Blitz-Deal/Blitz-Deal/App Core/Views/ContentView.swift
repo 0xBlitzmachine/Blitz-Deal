@@ -14,10 +14,15 @@ struct ContentView: View {
     var body: some View {
         if self.storeObjectHandler.dataLoaded {
             TabView {
-                List(self.storeObjectHandler.storeObjects, id: \.storeID) { storeObject in
-                    Text(storeObject.storeName!)
-                        
-                   
+                List {
+                    ForEach(self.storeObjectHandler.storeObjects, id: \.storeID) { storeObject in
+                        Text(storeObject.storeName!)
+                    }
+                    .onDelete(perform: { indexSet in
+                        let object = self.storeObjectHandler.rawStoreObjects[indexSet.first!]
+                        self.storeObjectHandler.deleteObject(object: object)
+                    })
+                    
                 }
                 .tabItem {
                     Label("Tab 1", systemImage: "person")
