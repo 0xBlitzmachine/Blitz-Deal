@@ -13,19 +13,21 @@ struct ContentView: View {
     @StateObject private var storeObjectHandler: StoreObjectsHandler = .shared
     
     @State private var showNotification = false
+    @State private var gameObj: [CheapSharkGameObject]?
     
     var body: some View {
         if self.storeObjectHandler.dataLoaded {
             TabView {
-                List {
-                    ForEach(self.storeObjectHandler.storeObjects, id: \.storeID) { storeObject in
-                        Text(storeObject.storeName!)
+                List(self.storeObjectHandler.storeObjects, id: \.storeID) { storeObject in
+                    VStack {
+                        AsyncImage(url: URL(string: (("https://www.cheapshark.com" + (storeObject.images?.logo)!) ?? ""))) { image in
+                            image
+                                .resizable()
+                        } placeholder: {
+                            Image(systemName: "person")
+                        }
+                        
                     }
-                    .onDelete(perform: { indexSet in
-                        let object = self.storeObjectHandler.rawStoreObjects[indexSet.first!]
-                        self.storeObjectHandler.deleteObject(object: object)
-                    })
-                    
                 }
                 .tabItem {
                     Label("Tab 1", systemImage: "person")
@@ -43,11 +45,20 @@ struct ContentView: View {
                 }
                 .tag(2)
                 
-                Text("Lala")
-                    .tabItem {
-                        Label("Tab 3", systemImage: "person")
+                List(gameObj ?? [CheapSharkGameObject](), id: \.gameID) { gameObj in
+                    Text(gameObj.title ?? "NO TITLE")
+                    Text(gameObj.storeID ?? "NO STORE ID")
+                }
+                .onAppear {
+                    Task {
+                        gameObj = try await CheapSharkService.getData(endpoint: .listOfDeals,
+                                                                      parameters: "storeID=3")
                     }
-                    .tag(3)
+                }
+                .tabItem {
+                    Label("Tab 3", systemImage: "person")
+                }
+                .tag(3)
             }
             .present(isPresented: $showNotification,
                      type: .floater(verticalPadding: 60),

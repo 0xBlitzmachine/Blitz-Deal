@@ -10,12 +10,19 @@ import Foundation
 class CheapSharkService {
     // Generic function with multi selection for endpoints
     // TODO: Add ability to add parameters to endpoints!
-    static func getData<T: Codable>(endpoint: CheapSharkEndpoint) async throws -> T? {
-        let baseUrl = "https://cheapshark.com/api/1.0"
+    static func getData<T: Codable>(endpoint: CheapSharkEndpoint, parameters: String? = nil) async throws -> T? {
+        
         var decodedData: T?
         
+        var uncovertedURL: String {
+            if let parameters {
+                return endpoint.getFullEndpointPath() + parameters
+            }
+            return endpoint.getFullEndpointPath()
+        }
+        
         // Validated the URL
-        guard let url = URL(string: (baseUrl + endpoint.getEndpointString())) else {
+        guard let url = URL(string: uncovertedURL) else {
             throw CheapSharkServiceError.badURL
         }
         
@@ -50,6 +57,7 @@ class CheapSharkService {
                 print("An unknown event occured!")
             }
         }
+        print(url.absoluteString)
         return decodedData
     }
 }

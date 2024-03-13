@@ -22,9 +22,9 @@ extension StoreObject {
         return CheapSharkStoreObject(storeID: self.storeID,
                                      storeName: self.storeName,
                                      isActive: self.isActive ? 1 : 0,
-                                     images: CheapSharkStoreImage(_banner: self.images?.banner,
-                                                                  _logo: self.images?.logo,
-                                                                  _icon: self.images?.icon))
+                                     images: CheapSharkStoreImage(banner: self.images?.banner,
+                                                                  logo: self.images?.logo,
+                                                                  icon: self.images?.icon))
     }
 }
 

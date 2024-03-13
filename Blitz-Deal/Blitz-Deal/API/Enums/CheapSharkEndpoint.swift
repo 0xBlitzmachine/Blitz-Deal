@@ -17,25 +17,28 @@ enum CheapSharkEndpoint {
 }
 
 extension CheapSharkEndpoint {
+     
+    static let url = "https://cheapshark.com" + base
+    private static let base = "/api/1.0"
     
     private static let dealsEndpoint = "/deals?"
     private static let gamesEndpoint = "/games?"
     private static let storesEndpoint = "/stores?"
     
-    func getEndpointString() -> String {
+    func getFullEndpointPath() -> String {
         switch self {
         case .listOfDeals:
-            return CheapSharkEndpoint.dealsEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.dealsEndpoint
         case .listOfGames:
-            return CheapSharkEndpoint.gamesEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.gamesEndpoint
         case .dealLookUp:
-            return CheapSharkEndpoint.dealsEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.dealsEndpoint
         case .gameLookUp:
-            return CheapSharkEndpoint.gamesEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.gamesEndpoint
         case .multipleGameLookUp:
-            return CheapSharkEndpoint.gamesEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.gamesEndpoint
         case .storesInfo:
-            return CheapSharkEndpoint.storesEndpoint
+            return CheapSharkEndpoint.url + CheapSharkEndpoint.storesEndpoint
         }
     }
 }
