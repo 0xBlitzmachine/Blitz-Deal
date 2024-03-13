@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SSToastMessage
 
 struct ContentView: View {
     
     @StateObject private var storeObjectHandler: StoreObjectsHandler = .shared
+    
+    @State private var showNotification = false
     
     var body: some View {
         if self.storeObjectHandler.dataLoaded {
@@ -29,11 +32,16 @@ struct ContentView: View {
                 }
                 .tag(1)
                 
-                Text("Baba")
-                    .tabItem {
-                        Label("Tab 2", systemImage: "person")
+                VStack {
+                    Button("Show Notification") {
+                        showNotification.toggle()
                     }
-                    .tag(2)
+                    .buttonStyle(.borderedProminent)
+                }
+                .tabItem {
+                    Label("Tab 2", systemImage: "person")
+                }
+                .tag(2)
                 
                 Text("Lala")
                     .tabItem {
@@ -41,6 +49,13 @@ struct ContentView: View {
                     }
                     .tag(3)
             }
+            .present(isPresented: $showNotification,
+                     type: .floater(verticalPadding: 60),
+                     position: .top,
+                     autohideDuration: 2, view: {
+                NotificationView(notificationType: .success,
+                                 notificationMessage: "This is my custom notification Message and so on. Whatever it was, it was successful!")
+            })
         } else {
             SplashScreenView()
                 .environmentObject(storeObjectHandler)

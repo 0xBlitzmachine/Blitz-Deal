@@ -26,8 +26,7 @@ struct NotificationView: View {
                     .font(.title)
                   
                 Divider()
-                    .background(.white)
-                    .padding([.leading, .trailing], 25)
+                    .padding(.horizontal, 25)
                 
                 Text(self.notificationMessage)
                     .padding(.vertical, 5)
