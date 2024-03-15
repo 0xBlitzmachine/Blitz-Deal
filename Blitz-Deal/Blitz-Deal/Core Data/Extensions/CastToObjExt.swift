@@ -10,7 +10,7 @@ import CoreData
 
 
 extension Array where Element == StoreObject {
-    func castToCheapSharkObjectArray() -> [CheapSharkStoreObject] {
+    func castToCheapSharkObjectArray() -> [CSStoreObject] {
         self.map { storeObject in
             storeObject.castToCheapSharkObject()
         }
@@ -18,18 +18,18 @@ extension Array where Element == StoreObject {
 }
 
 extension StoreObject {
-    func castToCheapSharkObject() -> CheapSharkStoreObject {
-        return CheapSharkStoreObject(storeID: self.storeID,
+    func castToCheapSharkObject() -> CSStoreObject {
+        return CSStoreObject(storeID: self.storeID,
                                      storeName: self.storeName,
                                      isActive: self.isActive ? 1 : 0,
-                                     images: CheapSharkStoreImage(banner: self.images?.banner,
+                                     images: CSStoreImages(banner: self.images?.banner,
                                                                   logo: self.images?.logo,
                                                                   icon: self.images?.icon))
     }
 }
 
 
-extension CheapSharkStoreObject {
+extension CSStoreObject {
     func castToStoreObject(context: NSManagedObjectContext) {
         let storeObject: StoreObject = .init(context: context)
         
@@ -40,13 +40,13 @@ extension CheapSharkStoreObject {
     }
 }
 
-extension CheapSharkStoreImage {
+extension CSStoreImages {
     func castToStoreImage(context: NSManagedObjectContext) -> StoreImage {
         let storeImage: StoreImage = .init(context: context)
         
-        storeImage.banner = self.banner
-        storeImage.logo = self.logo
-        storeImage.icon = self.icon
+        storeImage.banner = self.banner?.absoluteString
+        storeImage.logo = self.logo?.absoluteString
+        storeImage.icon = self.icon?.absoluteString
         return storeImage
     }
 }

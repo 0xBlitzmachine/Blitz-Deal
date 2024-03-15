@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class StoreObjectsHandler: ObservableObject {
+class StoreObjectHandler: ObservableObject {
     
     init() {
         self.saveAndFetchContext()
@@ -19,10 +19,10 @@ class StoreObjectsHandler: ObservableObject {
     @Published var dataStatusMessage = String()
     @Published var dataLoaded: Bool = false
     
-    @Published var storeObjects: [CheapSharkStoreObject] = .init()
+    @Published var storeObjects: [CSStoreObject] = .init()
     var rawStoreObjects: [StoreObject] = .init()
     
-    func createObject(object: CheapSharkStoreObject) {
+    func createObject(object: CSStoreObject) {
         object.castToStoreObject(context: self.storeObjectManager.context)
         self.saveAndFetchContext()
     }
@@ -34,7 +34,7 @@ class StoreObjectsHandler: ObservableObject {
 }
 
 
-extension StoreObjectsHandler {
+extension StoreObjectHandler {
     
     private func saveAndFetchContext() {
         self.storeObjectManager.saveContext()
@@ -61,14 +61,15 @@ extension StoreObjectsHandler {
     func validateDatabaseContent() async throws {
         self.dataStatusMessage = "Trying to get data from CheapShark ..."
         try await Task.sleep(for: .seconds(0.3))
+        let data: [CSStoreObject]? = try await CheapSharkService.getData(endpoint: .storesInfo)
         
-        let data: [CheapSharkStoreObject]? = try await CheapSharkService.getData(endpoint: .storesInfo)
         self.dataStatusMessage = "Proccessing data ..."
         try await Task.sleep(for: .seconds(0.3))
         
         if self.rawStoreObjects.isEmpty {
             self.dataStatusMessage = "Local database is empty"
             try await Task.sleep(for: .seconds(0.3))
+            
             self.dataStatusMessage = "Filling local database ..."
             if let data {
                 data.forEach({ object in
@@ -80,6 +81,7 @@ extension StoreObjectsHandler {
         } else {
             self.dataStatusMessage = "Correcting local database ..."
             try await Task.sleep(for: .seconds(0.3))
+            
             self.rawStoreObjects.forEach { object in
                 self.deleteObject(object: object)
             }
@@ -97,6 +99,6 @@ extension StoreObjectsHandler {
     }
 }
 
-extension StoreObjectsHandler {
-    static let shared: StoreObjectsHandler = .init()
+extension StoreObjectHandler {
+    static let shared: StoreObjectHandler = .init()
 }

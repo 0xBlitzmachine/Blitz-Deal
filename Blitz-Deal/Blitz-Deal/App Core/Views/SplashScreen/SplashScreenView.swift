@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashScreenView: View {
     
-    @EnvironmentObject private var storeObjectHandler: StoreObjectsHandler
+    @EnvironmentObject private var storeObjectHandler: StoreObjectHandler
     
     @State private var imageOpacity: Double = 0.0
     @State private var imageScale: CGSize = .init(width: 0.8, height: 0.8)
@@ -65,7 +65,6 @@ struct SplashScreenView: View {
                         
                         withAnimation(.easeOut(duration: 2)) {
                             self.stackOpacity = 0
-                            
                             self.imageScale = CGSize(width: 5, height: 5)
                             self.imageOpacity = 0
                         }
@@ -86,5 +85,5 @@ struct SplashScreenView: View {
 
 #Preview {
     SplashScreenView()
-        .environmentObject(StoreObjectsHandler.shared)
+        .environmentObject(StoreObjectHandler.shared)
 }
