@@ -11,24 +11,21 @@ import Foundation
 class DealGameObjectHandler: ObservableObject {
     
     @Published var gameObjects: [CSDealGameObject]?
+    @Published var dataLoaded: Bool = false
     
-    var dataIsLoaded: Bool {
-        if let gameObjects {
-            if gameObjects.count > 0 { return true }
-            else { return false }
-        }
-        return false
-    }
-    
-    func fetchGameDeals(storeID: Int, amount: Int) async {
+    func fetchGameDeals(storeID: Int, amount: Int, page: Int = 0) async {
         
         var fixedAmount: Int {
             if amount > 60 { return 60 }
             return amount
         }
         do {
-            self.gameObjects = try await CheapSharkService.getData(endpoint: .listOfDeals,
-                                                                   parameters: "storeID=\(storeID)&pageSize=\(amount)")
+            let tempGameObjects: [CSDealGameObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
+                                                                                           parameters: "storeID=\(storeID)&pageSize=\(amount)&pageNumber=\(page)")
+            
+            guard let tempGameObjects else { return }
+            self.gameObjects = tempGameObjects
+            self.dataLoaded = true
         } catch {
             print(error.localizedDescription)
         }

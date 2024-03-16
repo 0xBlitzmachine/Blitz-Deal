@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CSDealGameObject: Codable {
+struct CSDealGameObject: Codable, Equatable {
     let gameID: String?
     let title: String?
     let dealID: String?

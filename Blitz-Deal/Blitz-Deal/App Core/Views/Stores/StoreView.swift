@@ -12,17 +12,44 @@ struct StoreView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(storeObjectHandler.storeObjects.sorted(by: { Int($0.storeID!)! < Int($1.storeID!)! }), id: \.storeID) { storeObject in
-                AsyncImage(url: storeObject.images?.banner) { image in
-                    image
-                } placeholder: {
-                    Image(systemName: "person")
+            ForEach(self.storeObjectHandler.storeObjects.sorted(by: { Int($0.storeID!)! < Int($1.storeID!)! }), id: \.storeID) { storeObject in
+                
+                VStack {
+                    AsyncImage(url: storeObject.images?.banner) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image
+                                .aspectRatio(contentMode: .fit)
+                        case .failure(let error):
+                            Image("no_image100x100")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        @unknown default:
+                            Image("no_image100x100")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .background(.white)
+                        }
+                    }
+                    .frame(height: 80)
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .background {
+                        LinearGradient(colors: [.black, .gray],
+                                       startPoint: .top,
+                                       endPoint: .bottom)
+                    }
+                    .padding()
                 }
                 
-                Text(storeObject.storeID!)
-
+                DealGameView(storeID: Int(storeObject.storeID!)!)
+                
+                Divider()
+                    .padding()
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 

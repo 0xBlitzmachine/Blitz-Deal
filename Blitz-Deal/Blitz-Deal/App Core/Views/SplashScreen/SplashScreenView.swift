@@ -42,14 +42,18 @@ struct SplashScreenView: View {
                     }
                 }
             
+            
+            
             if self.readyToLoad {
                 VStack {
                     Divider()
                         .padding()
                     
                     ProgressView()
+                        .progressViewStyle(.circular)
                         .opacity(self.storeObjectHandler.dataLoaded ? 0.0 : 1.0)
                         .padding()
+                        .scaleEffect(CGSize(width: 1.5, height: 1.5))
                     
                     Text(self.storeObjectHandler.dataStatusMessage)
                         .font(.system(size: 25))
@@ -58,7 +62,6 @@ struct SplashScreenView: View {
                     
                     Spacer()
                 }
-                
                 .onAppear {
                     Task {
                         try await self.storeObjectHandler.validateDatabaseContent()
