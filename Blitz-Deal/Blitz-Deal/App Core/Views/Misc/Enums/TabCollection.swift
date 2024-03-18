@@ -8,19 +8,19 @@
 import Foundation
 
 enum TabCollection: String {
-    case stores, games
+    case deals, stores
     
     var title: String {
         switch self {
+        case .deals: return "Deals"
         case .stores: return "Stores"
-        case .games: return "Games"
         }
     }
     
     var icon: String {
         switch self {
         case .stores: return "storefront.fill"
-        case .games: return "gamecontroller.fill"
+        case .deals: return "gamecontroller.fill"
         }
     }
 }

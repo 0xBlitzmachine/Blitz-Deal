@@ -12,21 +12,21 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            StoreView()
+            DealsView()
                 .tabItem {
-                    Label(TabCollection.stores.title,
-                          systemImage: TabCollection.stores.icon)
+                    Label(TabCollection.deals.title,
+                          systemImage: TabCollection.deals.icon)
                 }
-                .tag(TabCollection.stores.rawValue)
+                .tag(TabCollection.deals.rawValue)
                 .environmentObject(storeObjectHandler)
             
             // Replace Text View with our new View later!
             Text("")
                 .tabItem {
-                    Label(TabCollection.games.title,
-                          systemImage: TabCollection.games.icon)
+                    Label(TabCollection.stores.title,
+                          systemImage: TabCollection.stores.icon)
                 }
-                .tag(TabCollection.games.rawValue)
+                .tag(TabCollection.stores.rawValue)
         }
     }
 }
