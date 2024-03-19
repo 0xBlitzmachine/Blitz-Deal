@@ -7,45 +7,39 @@
 
 import Foundation
 
+@MainActor
 class DealObjectHandler: ObservableObject {
     
     @Published var dealObjects: [CSDealGameObject]?
     @Published var isDataLoading: Bool = false
-
+    
     private let pageLimit: Int = 50
     
     
-    func fetchListOfDeals(storeID: Int? = nil, page: Int? = nil) async {
-        var parameters = String()
+    func fetchListOfDeals(parameters: String = String()) async {
         
         self.isDataLoading = true
         
-        if let storeID, var page {
-            if page > self.pageLimit {
-                page = self.pageLimit
-            }
-            parameters = "storeID=\(storeID)&pageNumber=\(page)"
-        } else if let storeID {
-            parameters = "storeID=\(storeID)"
-        } else if var page {
-            if page > self.pageLimit {
-                page = self.pageLimit
-            }
-            parameters = "pageNumber=\(page)"
-        }
-        
         do {
             let fetchedObjs: [CSDealGameObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
-                                                                   parameters: parameters)
-            
-            if self.dealObjects == nil {
-                self.dealObjects = fetchedObjs
+                                                                                       parameters: parameters)
+            if var dealObjects {
+                if let fetchedObjs {
+                    var objs: [CSDealGameObject] = .init()
+                    fetchedObjs.forEach( { obj in
+                        if !(dealObjects.contains(where: { $0.dealID == obj.dealID })) {
+                            objs.append(obj)
+                        }
+                    })
+                    
+                    self.dealObjects = objs
+                } else {
+                    print("List of Dealobjects is not nil but the requested data is!")
+                }
             } else {
-                fetchedObjs?.forEach( { obj in
-                    if !(self.dealObjects?.contains(where: { $0.dealID == obj.dealID }))! {
-                        self.dealObjects?.append(obj)
-                    }
-                })
+                if let fetchedObjs {
+                    self.dealObjects = fetchedObjs
+                }
             }
             
             self.isDataLoading = false

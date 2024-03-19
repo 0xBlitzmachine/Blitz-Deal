@@ -58,6 +58,8 @@ struct DealRow: View {
                             }
                         }
                     }
+                    
+                    Text(storeObj.storeName!)
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             }
@@ -102,7 +104,6 @@ struct DealRow: View {
         .overlay {
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                 .stroke(.gray, lineWidth: 1)
-                .shadow(color: .black ,radius: 5)
         }
         .padding()
     }
