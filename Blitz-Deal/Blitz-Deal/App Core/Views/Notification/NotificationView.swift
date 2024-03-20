@@ -43,6 +43,6 @@ struct NotificationView: View {
 }
 
 #Preview {
-    NotificationView(notificationType: .info,
+    NotificationView(notificationType: .error,
                      notificationMessage: "My notification Message!")
 }

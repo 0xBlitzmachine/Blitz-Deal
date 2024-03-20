@@ -19,7 +19,7 @@ extension Array where Element == StoreObject {
 
 extension StoreObject {
     func castToCheapSharkObject() -> CSStoreObject {
-        return CSStoreObject(storeID: self.storeID,
+         return CSStoreObject(storeID: self.storeID,
                                      storeName: self.storeName,
                                      isActive: self.isActive ? 1 : 0,
                                      images: CSStoreImages(banner: self.images?.banner,

@@ -21,21 +21,26 @@ struct DealsView: View {
     
     var body: some View {
         if dealObjectHandler.isDataLoading == false {
-            HStack {
-                Button("Previous Page") {
-                    
-                }
-                .padding()
-                
-                Text("Current Page: \(pageNumber)")
-                
-                Button("Next Page") {
-                    
-                }
-                .padding()
-            }
             ScrollView {
                 if let dealObjects = dealObjectHandler.dealObjects {
+                    HStack {
+                        Button("Previous Page") {
+                            guard pageNumber > 0 else { return }
+                            pageNumber -= 1
+                            self.fetchData()
+                        }
+                       
+                        
+                        Text("Current Page: \(pageNumber)")
+                            .padding()
+                        
+                        Button("Next Page") {
+                            guard pageNumber < 50 else { return }
+                            pageNumber += 1
+                            self.fetchData()
+                        }
+                    }
+                    
                     ForEach(dealObjects, id: \.dealID) { obj in
                         let storeObj = storeObjectHandler.storeObjects.first(where: { Int($0.storeID!)! == Int(obj.storeID!)!})
                         DealRow(dealObj: obj, storeObj: storeObj!)
@@ -44,7 +49,10 @@ struct DealsView: View {
                     Image("blitzdeal_banner_trans")
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
-                    Text("ERROR: No data provided to work with!")
+                    Button("Pull new Deals") {
+                        self.fetchData()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
         } else {
@@ -59,7 +67,7 @@ struct DealsView: View {
     
     private func fetchData() {
         Task {
-            await dealObjectHandler.fetchListOfDeals(parameters: "pageSize=60&pageNumber=\(pageNumber)")
+            await dealObjectHandler.fetchListOfDeals(parameters: "pageNumber=\(pageNumber)")
         }
     }
 }

@@ -21,7 +21,7 @@ struct MainTabView: View {
                 .environmentObject(storeObjectHandler)
             
             // Replace Text View with our new View later!
-            Text("")
+            StoresView()
                 .tabItem {
                     Label(TabCollection.stores.title,
                           systemImage: TabCollection.stores.icon)
