@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StoreRow: View {
+    @StateObject private var dealObjectHandler: DealObjectHandler = .init()
+    
     let obj: CSStoreObject
     
     var body: some View {
@@ -24,7 +26,7 @@ struct StoreRow: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 250)
+                        .frame(width: 250, height: 100)
                         .shadow(color: .black, radius: 2)
                         .padding()
                 } else {
@@ -34,13 +36,24 @@ struct StoreRow: View {
             }
             .fixedSize()
             
-            Divider()
-                .padding(.horizontal, 50)
-            
-            Text(obj.storeName!)
-                .padding()
-                .font(.title2)
-                .fontWeight(.light)
+            HStack {
+                Text(obj.storeName!)
+                    .font(.title2)
+                    .fontWeight(.light)
+                    .padding(.horizontal, 15)
+                
+                
+                NavigationLink(destination: {
+                    NavigationStack {
+                        ScrollView {
+                            DealsView(storeID: obj.storeID!)
+                        }
+                    }
+                    
+                }, label: {
+                    Label("Show Deals", systemImage: "rectangle.portrait.and.arrow.right")
+                })
+            }
         }
     }
 }

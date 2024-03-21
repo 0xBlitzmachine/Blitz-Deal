@@ -13,6 +13,7 @@ class DealObjectHandler: ObservableObject {
     @Published var dealObjects: [CSDealObject]?
     @Published var isDataLoading: Bool = false
     
+    
     let maxPageNumber: Int = 50
     let minPageNumber: Int = 0
     

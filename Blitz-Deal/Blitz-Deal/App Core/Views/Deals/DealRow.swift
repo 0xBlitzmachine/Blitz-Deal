@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct DealRow: View {
+    
     let dealObj: CSDealObject
     let storeObj: CSStoreObject
+    
+    @EnvironmentObject private var detailDealObjectHandler: DetailDealObjectHandler
     
     @Binding var isDetailViewPresented: Bool
     
@@ -32,6 +35,7 @@ struct DealRow: View {
                             .frame(width: 120, height: 50)
                             .scaledToFit()
                             .border(.black)
+                            .padding()
                         
                     } else {
                         ProgressView("Image Loading ...")
@@ -96,21 +100,21 @@ struct DealRow: View {
                     Text("$" + dealObj.salePrice!)
                 }
                 
-                
-                Button("See details") {
-                    isDetailViewPresented.toggle()
-                }
+                Button("See details", systemImage: "info", action: {
+                    Task {
+                        await detailDealObjectHandler.fetchDetailsOfDeal(dealID: dealObj.dealID!)
+                    }
+                })
                 .padding()
             }
         }
-        .sheet(isPresented: $isDetailViewPresented, content: {
-            DealDetailSheetView()
+        .sheet(isPresented: $detailDealObjectHandler.showDetailedSheet, onDismiss: {
+            detailDealObjectHandler.detailedDealObj = nil
+        }, content: {
+            DealDetailSheetView(dealID: dealObj.dealID!)
+                .presentationDragIndicator(.visible)
         })
         .frame(width: 360, height: 250)
-//        .overlay {
-//            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-//                .stroke(.gray, lineWidth: 1)
-//        }
         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         .padding()
     }

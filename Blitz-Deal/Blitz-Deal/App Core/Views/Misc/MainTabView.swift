@@ -19,7 +19,6 @@ struct MainTabView: View {
                               systemImage: TabCollection.deals.icon)
                     }
                     .tag(TabCollection.deals.rawValue)
-                    .environmentObject(storeObjectHandler)
                 
                 // Replace Text View with our new View later!
                 StoresView()

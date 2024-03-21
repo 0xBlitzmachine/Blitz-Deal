@@ -16,6 +16,8 @@ struct StoresView: View {
                 ForEach(storeObjectHandler.storeObjects, id: \.storeID ) { storeObj in
                     StoreRow(obj: storeObj)
                         .padding()
+                    
+                    Divider()
                 }
             }
             .navigationTitle("Select a store")

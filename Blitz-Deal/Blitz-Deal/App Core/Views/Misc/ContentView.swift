@@ -15,12 +15,11 @@ struct ContentView: View {
         NavigationStack {
             if self.storeObjectHandler.dataLoaded {
                 MainTabView()
-                    .environmentObject(self.storeObjectHandler)
             } else {
                 SplashScreenView()
-                    .environmentObject(self.storeObjectHandler)
             }
         }
+        .environmentObject(storeObjectHandler)
     }
 }
 

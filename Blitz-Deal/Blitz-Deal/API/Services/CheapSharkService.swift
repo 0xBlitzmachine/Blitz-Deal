@@ -57,7 +57,6 @@ class CheapSharkService {
                 print("An unknown event occured!")
             }
         }
-        print(url.absoluteString)
         return decodedData
     }
 }
