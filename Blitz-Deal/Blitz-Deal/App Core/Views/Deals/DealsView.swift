@@ -6,16 +6,14 @@
 //
 
 import SwiftUI
+import SSToastMessage
 
 struct DealsView: View {
     
     @EnvironmentObject private var storeObjectHandler: StoreObjectHandler
-    @StateObject private var dealObjectHandler = DealObjectHandler()
+    @StateObject private var dealObjectHandler: DealObjectHandler = .init()
     
     @State var isDetailSheetPresented = false
-    
-    @State private var pageNumber: Int = 0
-    private let pageLimit: Int = 50
     
     init() {
         self.fetchData()
@@ -23,24 +21,25 @@ struct DealsView: View {
     
     var body: some View {
         if dealObjectHandler.isDataLoading == false {
+            VStack {
             ScrollView {
                 if let dealObjects = dealObjectHandler.dealObjects {
                     HStack {
                         Button("Previous Page") {
-                            guard pageNumber > 0 else { return }
-                            pageNumber -= 1
+                            dealObjectHandler.decreasePageNumber()
                             self.fetchData()
                         }
-                       
+                        .disabled(dealObjectHandler.currentPage == dealObjectHandler.minPageNumber)
                         
-                        Text("Current Page: \(pageNumber)")
+                        
+                        Text("Current Page: \(dealObjectHandler.currentPage)")
                             .padding()
                         
                         Button("Next Page") {
-                            guard pageNumber < pageLimit else { return }
-                            pageNumber += 1
+                            dealObjectHandler.increasePageNumber()
                             self.fetchData()
                         }
+                        .disabled(dealObjectHandler.currentPage == dealObjectHandler.maxPageNumber)
                     }
                     
                     ForEach(dealObjects, id: \.dealID) { obj in
@@ -55,18 +54,44 @@ struct DealsView: View {
                         Divider()
                     }
                 } else {
+                    Text("Welcome to ")
+                        .font(.title3)
+                        .fontWeight(.ultraLight)
+                        .padding()
+                    
                     Image("blitzdeal_banner_trans")
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .frame(height: 200)
+                    
+                    Divider()
+                        .padding(50)
+                    
+                    Image(systemName: "info.square.fill")
+                        .padding(5)
+                        .foregroundStyle(Color.accentColor)
+                        .scaleEffect(CGSize(width: 2, height: 2))
+                    
+                    Text("By clicking on 'Request Data' you will fetch newest random deals. You can navigate up to 50 pages of deals. One Page has a total of 60 deals!")
+                        .padding(.horizontal, 50)
+                        .padding(.top, 20)
+                        .padding(.bottom, 150)
+                    
                     
                     Button("Request Data") {
                         self.fetchData()
                     }
+                    .buttonStyle(.borderedProminent)
+                    .fontWeight(.semibold)
                 }
             }
+        }
         } else {
             VStack {
                 Image("blitzdeal_banner_trans")
                     .shadow(radius: 5)
+                
+                Divider()
+                    .padding()
                 
                 ProgressView("Requesting Data ...")
             }
@@ -75,7 +100,7 @@ struct DealsView: View {
     
     private func fetchData() {
         Task {
-            await dealObjectHandler.fetchListOfDeals(parameters: "pageNumber=\(pageNumber)")
+            await dealObjectHandler.fetchListOfDeals(parameters: "pageNumber=\(dealObjectHandler.currentPage)")
         }
     }
 }

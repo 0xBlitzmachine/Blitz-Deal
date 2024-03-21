@@ -12,12 +12,14 @@ struct ContentView: View {
     @StateObject private var storeObjectHandler: StoreObjectHandler = .shared
     
     var body: some View {
-        if self.storeObjectHandler.dataLoaded {
-            MainTabView()
-                .environmentObject(self.storeObjectHandler)
-        } else {
-            SplashScreenView()
-                .environmentObject(self.storeObjectHandler)
+        NavigationStack {
+            if self.storeObjectHandler.dataLoaded {
+                MainTabView()
+                    .environmentObject(self.storeObjectHandler)
+            } else {
+                SplashScreenView()
+                    .environmentObject(self.storeObjectHandler)
+            }
         }
     }
 }

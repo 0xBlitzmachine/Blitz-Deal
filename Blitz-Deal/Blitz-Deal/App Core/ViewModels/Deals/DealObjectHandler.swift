@@ -13,7 +13,22 @@ class DealObjectHandler: ObservableObject {
     @Published var dealObjects: [CSDealObject]?
     @Published var isDataLoading: Bool = false
     
-    private let pageLimit: Int = 50
+    let maxPageNumber: Int = 50
+    let minPageNumber: Int = 0
+    
+    private var _currentPage: Int = 0
+    var currentPage: Int {
+        get { return _currentPage }
+        set {
+            if newValue > maxPageNumber {
+                _currentPage = maxPageNumber
+            } else if newValue < minPageNumber {
+                _currentPage = minPageNumber
+            } else {
+                _currentPage = newValue
+            }
+        }
+    }
     
     
     func fetchListOfDeals(parameters: String = String()) async {
@@ -22,7 +37,7 @@ class DealObjectHandler: ObservableObject {
         
         do {
             let fetchedObjs: [CSDealObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
-                                                                                       parameters: parameters)
+                                                                                   parameters: parameters)
             if var dealObjects {
                 if let fetchedObjs {
                     var objs: [CSDealObject] = .init()
@@ -46,8 +61,14 @@ class DealObjectHandler: ObservableObject {
             
         } catch {
             self.isDataLoading = false
-            print(error.localizedDescription)
         }
-        
+    }
+    
+    func increasePageNumber() {
+        self.currentPage += 1
+    }
+    
+    func decreasePageNumber() {
+        self.currentPage -= 1
     }
 }

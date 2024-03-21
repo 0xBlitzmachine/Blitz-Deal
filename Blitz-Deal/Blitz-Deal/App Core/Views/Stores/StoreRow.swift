@@ -12,9 +12,11 @@ struct StoreRow: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: obj.images?.logo) { phase in
+            AsyncImage(url: obj.images?.banner) { phase in
                 if let error = phase.error {
                     Image("no_image50x50")
+                        .resizable()
+                        .padding()
                         .onAppear {
                             print(error.localizedDescription)
                         }
@@ -22,24 +24,24 @@ struct StoreRow: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
+                        .frame(width: 250)
+                        .shadow(color: .black, radius: 2)
                         .padding()
                 } else {
                     ProgressView("Loading image ...")
+                        .padding()
                 }
             }
             .fixedSize()
             
+            Divider()
+                .padding(.horizontal, 50)
+            
             Text(obj.storeName!)
                 .padding()
                 .font(.title2)
-                .fontWeight(.thin)
+                .fontWeight(.light)
         }
-        .background {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(.gray ,lineWidth: 2)
-        }
-        .shadow(color: .black,radius: 5)
     }
 }
 
