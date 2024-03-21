@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class DealObjectHandler: ObservableObject {
     
-    @Published var dealObjects: [CSDealGameObject]?
+    @Published var dealObjects: [CSDealObject]?
     @Published var isDataLoading: Bool = false
     
     private let pageLimit: Int = 50
@@ -21,11 +21,11 @@ class DealObjectHandler: ObservableObject {
         self.isDataLoading = true
         
         do {
-            let fetchedObjs: [CSDealGameObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
+            let fetchedObjs: [CSDealObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
                                                                                        parameters: parameters)
             if var dealObjects {
                 if let fetchedObjs {
-                    var objs: [CSDealGameObject] = .init()
+                    var objs: [CSDealObject] = .init()
                     fetchedObjs.forEach( { obj in
                         if !(dealObjects.contains(where: { $0.dealID == obj.dealID })) {
                             objs.append(obj)

@@ -12,6 +12,8 @@ struct DealsView: View {
     @EnvironmentObject private var storeObjectHandler: StoreObjectHandler
     @StateObject private var dealObjectHandler = DealObjectHandler()
     
+    @State var isDetailSheetPresented = false
+    
     @State private var pageNumber: Int = 0
     private let pageLimit: Int = 50
     
@@ -35,24 +37,30 @@ struct DealsView: View {
                             .padding()
                         
                         Button("Next Page") {
-                            guard pageNumber < 50 else { return }
+                            guard pageNumber < pageLimit else { return }
                             pageNumber += 1
                             self.fetchData()
                         }
                     }
                     
                     ForEach(dealObjects, id: \.dealID) { obj in
-                        let storeObj = storeObjectHandler.storeObjects.first(where: { Int($0.storeID!)! == Int(obj.storeID!)!})
-                        DealRow(dealObj: obj, storeObj: storeObj!)
+                        let storeObj = storeObjectHandler.storeObjects.first(where: {
+                            Int($0.storeID!)! == Int(obj.storeID!)!
+                        })
+                        
+                        DealRow(dealObj: obj,
+                                storeObj: storeObj!,
+                                isDetailViewPresented: $isDetailSheetPresented)
+                        
+                        Divider()
                     }
                 } else {
                     Image("blitzdeal_banner_trans")
                         .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     
-                    Button("Pull new Deals") {
+                    Button("Request Data") {
                         self.fetchData()
                     }
-                    .buttonStyle(.borderedProminent)
                 }
             }
         } else {
@@ -60,7 +68,7 @@ struct DealsView: View {
                 Image("blitzdeal_banner_trans")
                     .shadow(radius: 5)
                 
-                ProgressView("Fetching more Deals ...")
+                ProgressView("Requesting Data ...")
             }
         }
     }

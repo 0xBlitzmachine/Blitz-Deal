@@ -14,6 +14,7 @@ struct SplashScreenView: View {
     @State private var imageOpacity: Double = 0.0
     @State private var imageScale: CGSize = .init(width: 0.8, height: 0.8)
     @State private var imageShadowRadius: CGFloat = 0
+    @State private var imageCopyrightScale: CGSize = .init(width: 1, height: 1)
     
     @State private var stackOpacity: Double = 1.0
     
@@ -41,6 +42,11 @@ struct SplashScreenView: View {
                         })
                     }
                 }
+            
+            Text("Logo by Ali Aksoy")
+                .font(.headline)
+                .fontWeight(.ultraLight)
+                .scaleEffect(imageCopyrightScale)
             
             
             
@@ -70,6 +76,7 @@ struct SplashScreenView: View {
                             self.stackOpacity = 0
                             self.imageScale = CGSize(width: 5, height: 5)
                             self.imageOpacity = 0
+                            self.imageCopyrightScale = CGSize(width: 3, height: 3)
                         }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {

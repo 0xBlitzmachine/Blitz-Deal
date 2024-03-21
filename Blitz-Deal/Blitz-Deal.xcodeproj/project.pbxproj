@@ -25,13 +25,15 @@
 		60680D272B879D450046D15D /* CSStoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D262B879D450046D15D /* CSStoreObject.swift */; };
 		60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2B2B879FBC0046D15D /* CheapSharkService.swift */; };
 		60680D2F2B87A1690046D15D /* CheapSharkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */; };
+		606BEDB62BAC258F00A07DE4 /* CSDetailedDealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606BEDB52BAC258F00A07DE4 /* CSDetailedDealObject.swift */; };
+		606BEDB82BAC47B300A07DE4 /* DealDetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606BEDB72BAC47B300A07DE4 /* DealDetailSheetView.swift */; };
 		607E5CF82B88936700A43B3D /* CheapSharkServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */; };
 		6080693C2BA06ED800FD49A8 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6080693B2BA06ED800FD49A8 /* SplashScreenView.swift */; };
 		6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6095266A2B8F4E520035B59E /* CastToObjExt.swift */; };
 		60C1B3042B95E319002094DF /* SSToastMessage in Frameworks */ = {isa = PBXBuildFile; productRef = 60C1B3032B95E319002094DF /* SSToastMessage */; };
 		60C1B3072B9F3663002094DF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3062B9F3663002094DF /* NotificationView.swift */; };
 		60C1B30A2B9F3FD4002094DF /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C1B3092B9F3FD4002094DF /* NotificationType.swift */; };
-		60C7EE412BA1DFDD00859B19 /* CSDealGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EE402BA1DFDD00859B19 /* CSDealGameObject.swift */; };
+		60C7EE412BA1DFDD00859B19 /* CSDealObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7EE402BA1DFDD00859B19 /* CSDealObject.swift */; };
 		60F800FC2BAB4D7A0061653C /* StoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F800FB2BAB4D7A0061653C /* StoresView.swift */; };
 		60F800FE2BAB4DF20061653C /* StoreRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F800FD2BAB4DF20061653C /* StoreRow.swift */; };
 /* End PBXBuildFile section */
@@ -57,12 +59,14 @@
 		60680D262B879D450046D15D /* CSStoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSStoreObject.swift; sourceTree = "<group>"; };
 		60680D2B2B879FBC0046D15D /* CheapSharkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkService.swift; sourceTree = "<group>"; };
 		60680D2E2B87A1690046D15D /* CheapSharkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkEndpoint.swift; sourceTree = "<group>"; };
+		606BEDB52BAC258F00A07DE4 /* CSDetailedDealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailedDealObject.swift; sourceTree = "<group>"; };
+		606BEDB72BAC47B300A07DE4 /* DealDetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDetailSheetView.swift; sourceTree = "<group>"; };
 		607E5CF72B88936700A43B3D /* CheapSharkServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapSharkServiceError.swift; sourceTree = "<group>"; };
 		6080693B2BA06ED800FD49A8 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		6095266A2B8F4E520035B59E /* CastToObjExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastToObjExt.swift; sourceTree = "<group>"; };
 		60C1B3062B9F3663002094DF /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		60C1B3092B9F3FD4002094DF /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
-		60C7EE402BA1DFDD00859B19 /* CSDealGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDealGameObject.swift; sourceTree = "<group>"; };
+		60C7EE402BA1DFDD00859B19 /* CSDealObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDealObject.swift; sourceTree = "<group>"; };
 		60F800FB2BAB4D7A0061653C /* StoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresView.swift; sourceTree = "<group>"; };
 		60F800FD2BAB4DF20061653C /* StoreRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +200,7 @@
 			children = (
 				605807742BA71BD5002CFC60 /* DealsView.swift */,
 				604D69B72BA8561000667650 /* DealRow.swift */,
+				606BEDB72BAC47B300A07DE4 /* DealDetailSheetView.swift */,
 			);
 			path = Deals;
 			sourceTree = "<group>";
@@ -290,7 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				60680D262B879D450046D15D /* CSStoreObject.swift */,
-				60C7EE402BA1DFDD00859B19 /* CSDealGameObject.swift */,
+				60C7EE402BA1DFDD00859B19 /* CSDealObject.swift */,
+				606BEDB52BAC258F00A07DE4 /* CSDetailedDealObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -420,11 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C7EE412BA1DFDD00859B19 /* CSDealGameObject.swift in Sources */,
+				60C7EE412BA1DFDD00859B19 /* CSDealObject.swift in Sources */,
 				6065CF242BA5B1AB007B691A /* TabCollection.swift in Sources */,
 				60C1B30A2B9F3FD4002094DF /* NotificationType.swift in Sources */,
 				604D69B62BA84CCB00667650 /* DealObjectHandler.swift in Sources */,
 				6026584F2B8D167F00CE9368 /* StoreObjectsManager.swift in Sources */,
+				606BEDB62BAC258F00A07DE4 /* CSDetailedDealObject.swift in Sources */,
 				6080693C2BA06ED800FD49A8 /* SplashScreenView.swift in Sources */,
 				602658492B8D08B500CE9368 /* PersistentStoreManager.swift in Sources */,
 				605807752BA71BD5002CFC60 /* DealsView.swift in Sources */,
@@ -442,6 +449,7 @@
 				6095266B2B8F4E520035B59E /* CastToObjExt.swift in Sources */,
 				604D69B82BA8561000667650 /* DealRow.swift in Sources */,
 				605805F52B90F03600211E33 /* Stores.xcdatamodeld in Sources */,
+				606BEDB82BAC47B300A07DE4 /* DealDetailSheetView.swift in Sources */,
 				60680D2C2B879FBC0046D15D /* CheapSharkService.swift in Sources */,
 				606804C22B55C2E200E3B4D9 /* AppCore.swift in Sources */,
 			);

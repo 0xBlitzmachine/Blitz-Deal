@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DealRow: View {
-    let dealObj: CSDealGameObject
+    let dealObj: CSDealObject
     let storeObj: CSStoreObject
+    
+    @Binding var isDetailViewPresented: Bool
     
     var body: some View {
         VStack {
@@ -29,6 +31,7 @@ struct DealRow: View {
                             .resizable()
                             .frame(width: 120, height: 50)
                             .scaledToFit()
+                            .border(.black)
                         
                     } else {
                         ProgressView("Image Loading ...")
@@ -95,16 +98,20 @@ struct DealRow: View {
                 
                 
                 Button("See details") {
-                    
+                    isDetailViewPresented.toggle()
                 }
                 .padding()
             }
         }
+        .sheet(isPresented: $isDetailViewPresented, content: {
+            DealDetailSheetView()
+        })
         .frame(width: 360, height: 250)
-        .overlay {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .stroke(.gray, lineWidth: 1)
-        }
+//        .overlay {
+//            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+//                .stroke(.gray, lineWidth: 1)
+//        }
+        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         .padding()
     }
 }

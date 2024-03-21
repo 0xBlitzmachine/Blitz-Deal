@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class DealGameObjectHandler: ObservableObject {
     
-    @Published var gameObjects: [CSDealGameObject]?
+    @Published var gameObjects: [CSDealObject]?
     @Published var dataLoaded: Bool = false
     
     func fetchGameDeals(storeID: Int, amount: Int, page: Int = 0) async {
@@ -20,7 +20,7 @@ class DealGameObjectHandler: ObservableObject {
             return amount
         }
         do {
-            let tempGameObjects: [CSDealGameObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
+            let tempGameObjects: [CSDealObject]? = try await CheapSharkService.getData(endpoint: .listOfDeals,
                                                                                            parameters: "storeID=\(storeID)&pageSize=\(amount)&pageNumber=\(page)")
             
             guard let tempGameObjects else { return }
